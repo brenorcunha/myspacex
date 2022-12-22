@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox layout</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            background-color: darkgray;
+            min-height: 100vh;
+            /*vh = viewboard heigth*/
+            display: flex; /*Exibe o flex em blocos de linha*/
+            flex-direction: column; /*Exibe em forma de coluna
+            row-gap: 0px; Espaçamento entre linhas
+            column-gap: 15px;
+            Ou junta os dois: */
+            gap: 0px 15px;
+            justify-content: center; /* 'start', 'center' ou 'end', 'flex-end', 'flex-satrt', 'space-between', 'space-evenly' ETC*/
+            align-items: center; /* Alinhamento na coluna, enquanto o justify-content é na linha*/
+            /*flex-wrap: wrap; Para responso*/
+        }
+        .item{
+            width: 100%;
+            height: 70px;
+            border: 1px solid black;
+            background-color: white;
+            font-size: 20px;
+            display: flex;
+            justify-content: center; /* alinhar os elementos ao longo do exio principal (horizontal)* - default: stretch - flex-start - flex-end - center -space-around space-between*/
+            align-items: center; /* alinhar os elementos no eixo transversal (altura) - default: stretch - flex-start - flex-end - center*/
+        }
+        .item2{
+            flex: 1 0 200px;
+        }
+        @media(max-width: 390px){
+            .item2{
+                flex: 1 0 620px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item item1">
+            <p>Item 1</p>
+        </div>
+        <div class="item item2">
+            <p>Item 2</p>
+        </div>
+        <div class="item item3">
+            <p>Item 3</p>
+        </div>
+    </div>
+</body>
+</html>

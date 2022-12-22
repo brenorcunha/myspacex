@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Venda de pizzas</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+   <script src='javascript.js'></script>
+   <script src="tableToExcel.js"></script>
+</head>
+<body>
+    <!-- âncoras:
+     ./ = Quando vamos acessar uma pasta dentro da atual (à direita);
+    ../ = Quando vamos acessar uma pasta que está fora da atual (à esquerda)-->
+    
+    <a href="./index.html"></a>
+    <header>
+        <ul>
+            <li><h1>Sistema de pizzas</h1></li>
+            <li><h2>PedPizzas</h2></li>
+        </ul>
+    </header>
+    <section class="text-content">
+        
+        <form action="">
+            <br>
+            <h3>Selecione a sua pizza: </h3>
+        <ul>
+            <li><input type="radio" id="mussarela" name="pizzas">
+                <label for="mussarela">Mussarela</label></li>
+            <li><input type="radio" id="portuguesa" name="pizzas">
+                <label for="portuguesa">Portuguesa</label></li>
+            <li><input type="radio" id="calabresa" name="pizzas">
+                <label for="calabresa">Calabresa</label></li>
+        </ul>
+        </form>
+    </section>
+    <section>
+        <button class="btns" id="vendas">Venda</button> 
+        <button class="btns" id="estorno">Estorno</button>
+    </section>
+     <!--DIVS nao sao mais utlizadas no html5-->
+     <section id="table">
+        <table>
+            <tr>
+                <th>Sabor</th><th> Quantidade </th><th>Valor (R$)</th>
+            </tr>
+            <tr>
+                <td>Mussarela</td><td id="resultadoMussarela">0</td><td id="vendaMussarela"></td>
+            </tr>
+            <tr>
+                <td>Portuguesa</td><td id="resultadoPortuguesa">0</td><td id="vendaPortuguesa"></td>
+            </tr>
+            <tr>
+                <td>Calabresa</td><td id="resultadoCalabresa">0</td><td id="vendaCalabresa"></td>
+            </tr>
+        </table>
+     </section>
+     <section>
+	 <p>
+	
+	 </p>
+        <button class="btns" id="export">Exportar</button>
+     </section>
+
+    <br>
+    <img class="image-content" src="01.jpg" alt="City">
+    <p class="text-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum consectetur odit ullam! Corrupti itaque perspiciatis magni, at eaque officia unde quo maxime, ratione quas, rerum temporibus. Doloremque corporis recusandae iusto!</p>
+
+    <img class="image-content" src="02.jpg" alt="Sea">
+    <p class="text-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum consectetur odit ullam! Corrupti itaque perspiciatis magni, at eaque officia unde quo maxime, ratione quas, rerum temporibus. Doloremque corporis recusandae iusto!</p>
+
+    <img class="image-content" src="03.jpg" alt="Mountain">
+    <p class="text-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum consectetur odit ullam! Corrupti itaque perspiciatis magni, at eaque officia unde quo maxime, ratione quas, rerum temporibus. Doloremque corporis recusandae iusto!</p>
+
+     <a href="exemplo.html">Volte para a página de prática em HTML</a>
+     <a href="aside.html"> Vá para o ASIDE</a>
+     <a href="responsividade.html">Página do FlexBox</a>
+     <a href="layoutDogrid.html">Página do GRID</a>
+    </body> 
+</html> 

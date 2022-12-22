@@ -1,0 +1,53 @@
+{
+    "git.autofetch": true,
+    "window.zoomLevel": 0,
+    "workbench.colorTheme": "Default Light+",
+    "git.enableSmartCommit": true,
+    "explorer.confirmDelete": false,
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue"
+    
+}
+
+/**
+SETTINGS.JSON
+Extensões:
+Auto Close Tag
+Auto Rename Tag
+Color Highlight
+Color Picker
+Debugger for Chrome
+DotENV
+ESLint
+Git Graph
+Git History
+Git Project Manager
+IntelliSense for CSS class names in HTML
+Laravel 5 Snippets
+Laravel Artisan
+Laravel Assist
+Laravel Blade Snippets
+Laravel Blade Spacer
+Laravel Extra Intellisense
+laravel-blade
+Path Intellisense
+PHP Debug
+PHP DocBlocker
+PHP Intelephense
+Sort JSON objects
+vscode-php-cs-fixer
+
+Model cuida do BD - parte onde colocamos as regras de negócio da aplicação (Acesso ao BD, cálculos, validações, etc).
+- artisan make:model nomedomodel
+View cuida da camada de exibição.
+Controller cuida da lógica do negócio.
+
+Add pasta do repositório: 
+Dá o comando seguinte no Terminal do Laragon:
+Abra um terminal no próprio VS e coloque: 
+git config --global user.name "Breno da Cunha"
+git config --global user.email "breno.rcunha2@gmail.com"
+git config --list
+git remote add origin https://brenorc110@bitbucket.org/brenorc110/agendal6.git
+git branch --set-upstream-to origin/master
+*/

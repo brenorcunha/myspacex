@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exerc 1 FlexBox</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .header{
+            background-color: black;
+            display:flex;
+            justify-content: space-between; /*fazer com que os itens fiquem afastados uns dos outros, não ligando para as bordas.*/
+            align-items: center;/* alinhar os itens verticalmente*/
+            padding: 10px 25px;
+        }
+        
+        .logo-rock{
+            width: 40px;
+        }
+        .logo-onebitcode{
+            width: 200px;
+        }
+        .buttons{
+            display: flex;
+            gap: 5px; /* GAP é melhor pra espaçar do que ficar add margens*/
+        }
+        .buttonHeader{
+            font-size: 14px;
+            padding: 10px 10px;
+            border-radius: 10px;
+            background-color: transparent;
+            border-color: white;
+            color: white;
+            cursor: pointer;
+            transition: 0.4s; /*Transição para o botão demorar para mudar de cor. */
+        }
+        .buttonHeader:hover{
+            border-color: #ff0044;
+        }
+        .container{
+            background-color: darkgray;
+            min-height: 100vh;
+            /*vh = viewboard heigth*/
+            display: flex; /*Exibe o flex em blocos de linha*/
+            flex-direction: column; /*Exibe em forma de coluna
+            Espaçamento entre linhas: 'row-gap' 'column-gap' */
+            /* gap: 0px 15px; */
+            justify-content: center; /* 'start', 'center' ou 'end', 'flex-end', 'flex-satrt', 'space-between', 'space-evenly' ETC*/
+            align-items: center; /* Alinhamento na coluna, enquanto o justify-content é na linha*/
+            /*flex-wrap: wrap; Para responso*/
+        }
+        .item{
+            width: 350px;
+            height: 240px;
+            border: 1px solid black;
+            background-color: white;
+            font-size: 25px;
+            /* Alinhar texto das caixas: */
+            display: flex;
+            justify-content: center; /* alinhar os elementos ao longo do exio principal (horizontal)* - default: stretch - flex-start - flex-end - center -space-around space-between*/
+            align-items: center; /* alinhar os elementos no eixo transversal (altura) - default: stretch - flex-start - flex-end - center*/
+        }
+        .main-content{
+            flex: 1 0 300px;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap; /* Parãmetro pra responsividade - pular linhas e não gerar barra de rolagem.*/
+            gap: 10px; /* ADD 10 px de espaço entre as caixas*/
+            align-items: center;
+            justify-content: center;
+            align-content: center;/* Alinha caixas removendo espaçoes excessivos entre as linhas delas.*/
+        }
+        .footer{
+            flex-basis: 100%;
+            padding: 10px 25px;
+            background-color: white;
+            border: 2px solid black;
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <img src="iconrock-red.svg" alt="logo-rock" class="logo-rock">
+        <a href="index.html">
+        <img src="logo-onebitcode.svg" alt="logo-onebitcode" class="logo-onebitcode"></a>
+        <div class="buttons">
+            <a href="index.html"><button class="buttonHeader">Início</button></a>
+            <button class="buttonHeader">FAQ</button>
+            <button class="buttonHeader">Suporte</button>
+        </div>
+    </header>
+    <div class="container">
+        
+        <section class="main-content">
+            <div class="item">
+                <p>Item 1</p>
+            </div>
+            <div class="item">
+                <p>Item 2</p>
+            </div>
+            <div class="item">
+                <p>Item 3</p>
+            </div>
+            <div class="item">
+                <p>Item 4</p>
+            </div>
+            <div class="item">
+                <p>Item 5</p>
+            </div>
+            <div class="item">
+                <p>Item 6</p>
+            </div>
+        </section>
+        
+    </div>
+    <footer class="footer"><b>FOOTER</b></footer>
+</body>
+</html>
