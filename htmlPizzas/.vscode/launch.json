@@ -9,14 +9,14 @@
             "port": 9222,
             "request": "attach",
             "type": "msedge",
-            "webRoot": "${workspaceFolder}\\index.html"
+            "webRoot": "${workspaceFolder}\\htmlPizzas\\index.html"
         },
 
         {
             "type": "msedge",
             "request": "launch",
             "name": "Open index.html",
-            "file": "c:\\Users\\Beto\\htmlPizzas\\index.html"
+            "file": "c:\\Users\\Beto\\front\\htmlPizzas\\index.html"
         }
     ]
 }

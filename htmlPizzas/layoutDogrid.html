@@ -19,16 +19,17 @@
             font-size: 30px;
             padding: 10px 15px;
             border: 2px solid black;
+            gap: 10%;
         }
         .container{
             background-color: darkgray;
             min-height: 100vh;/*vh = viewboard heigth*/
             /* Para criar layout GRID e aplicar layout de colunas: */
             display: grid;
-            grid-template-columns: 25% 48% 25%;
-            /* Podemos pôr frames: '1fr 1fr 1fr' - ou 'repeat(1fr)'*/
+            grid-template-columns: 24% 50% 24%;
+            /* Podemos pôr frames: '1fr 1fr 1fr' - ou 'repeat(3, 1fr)'*/
             gap: 10px; /*"Buraco" entre um elemento (quadrado) e outro*/
-            grid-auto-rows: minmax(280px, 100%);  /* Altura mínima de linha e zoom*/
+            grid-auto-rows: minmax(250px, auto);  /* Altura mínima de linha e zoom*/
         }
         .item{
             /* width: 200px;

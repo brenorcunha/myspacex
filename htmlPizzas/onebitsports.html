@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=d24ice-width, 24itial-scale=1.0">
+    <title>Projeto FlexBox e Grid</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .header{
+            /* Esses 2 sao para que o header fique responsivo */
+            width: 100%;
+            min-height: 40px;
+            background-color: #292929;
+            display: flex;
+            justify-content:space-between;
+            padding: 10px 25px;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px 15px; /* para que quando diminua res., não quebre - responso tbm*/
+        }
+        .footer{
+            flex-basis: 100%;
+            padding: 10px 25px;
+            background-color: #292929;
+            border: 2px solid #292929;
+            display: flex;
+            justify-content: center;
+        }
+        .buttons{
+            color: white;
+            font-size: 16px;
+            padding: 6px;
+            border: 2px solid transparent;
+            background-color: transparent;
+            cursor: pointer;
+            transition: 0.4s;
+        }
+        .buttons:hover{
+            border-bottom: 2px solid black;
+        }
+        .container{
+            background-color: white;
+            min-height: 100vh;
+            display:grid;
+            flex-direction: column;
+            padding: 10px;
+        }
+        .item{
+            background-color: white;
+            width: 280px;
+            height: 380px;
+            font-size: 14px;
+            display: grid;
+            justify-content: center; 
+            align-items: center;
+            border: 2px solid transparent;
+            /* grid-auto-rows: minmax(240px, 300px); */
+        }
+        .item:hover{
+            border-color: black;
+        }
+        .main-content{
+            flex: 1 0 350px;
+            padding: 20px;
+            display: flex;
+            flex-wrap:wrap;
+            gap: 10px;
+            align-items: center;
+            justify-content: center;
+            align-content: center;
+        }
+        .mainCardImg{
+            width: 100%;
+            height: 100%;
+            border: 2px solid transparent;
+            border-radius: 10px;
+        }
+        aside {
+            width: 20%;
+            min-width: 300px;
+            padding: 16px;
+            float: right;
+            color:white;
+            background-color: #383838;
+            /* display: grid; */
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+            }
+            .sideBarCard{
+                width: 85%;
+                border: 1px solid transparent;
+                border-radius: 10px;
+                transition: 0.5s;
+                cursor: pointer;
+            }
+            .sideBarCard:hover{
+                border-color: gainsboro;
+            }
+            @media(max-width: 630px){
+                .container{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+                .sideBarCard{
+                    min-width: auto;
+                }
+            }
+            @media (max-width: 500px) {
+                /* IMPLEMENTAR: A partir de 500px, ASIDe deve ir para baixo do main content.*/
+            }
+    </style>
+</head> 
+<body>
+    <header class="header"><img src="../htmlPizzas/imagens/logo-onebitcode.svg" alt="OneBitSports" style="width: 200px; padding:10px">
+        <div class="buttons">
+            <button class="buttons">Login</button>
+            <button class="buttons">Registro</button>
+            <button class="buttons">FAQ</button>
+        </div>
+    </header>
+    <h1 style="text-align: center; font-family: Arial, Helvetica, sans-serifl, Helvetica, sans-serif; border-top: 10px;" id="anchor">BEM-VINDO À ONEBITSPORTS!</h1>
+    
+    <p style="color: #383838; text-align: center;">Aqui você encontra todos os itens mais novos e modernos do seu esporte preferido. </p>
+    <aside class="aside">
+        <p>CATEGORIAS EXTRAS: </p>
+        <div class="sideBarCard">
+            <img src="./imagens/bicicletas.jpg" alt="Bicicletas" class="mainCardImg">
+            <p>BICICLETAS</p>
+        </div>
+        <div class="sideBarCard">
+            <img src="./imagens/esportesNaNeve.jpg" alt="Esportes de frio" class="mainCardImg">
+            <p>ESPORTES DE FRIO</p>
+        </div>
+        <div class="sideBarCard">
+            <img src="./imagens/skate.jpg" alt="Skate" class="mainCardImg">
+            <p>SKATE</p>
+        </div>
+        <div class="sideBarCard">
+            <img src="./imagens/yoga.jpg" alt="Yoga" class="mainCardImg">
+            <p>YOGA</p>
+        </div>
+    </aside>
+    <div class="container">
+        <section class="main-content">
+            <div class="item">
+                <img src="./imagens/boxe.jpg" alt="Boxe" class="mainCardImg">
+                <figcaption>BOXE</figcaption>
+                <p style="font-family: Arial, Helvetica, sans-serif;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus illo nemo aliquam nam commodi? Ipsum facere iusto, voluptatem quo voluptatibus nobis!</p>
+            </div>
+            <div class="item">
+                <img src="./imagens/crossfit.jpg" alt="Crossfit" class="mainCardImg">
+                <figcaption>CROSSFIT</figcaption>
+                <p style="font-family: Arial, Helvetica, sans-serif;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus illo nemo aliquam nam commodi? Ipsum facere iusto, voluptatem quo voluptatibus nobis!</p>
+            </div>
+            <div class="item">
+                <img src="./imagens/natacao.jpg" alt="Natação" class="mainCardImg">
+                <figcaption>NATAÇÃO</figcaption>
+                <p style="font-family: Arial, Helvetica, sans-serif;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus illo nemo aliquam nam commodi? Ipsum facere iusto, voluptatem quo voluptatibus nobis!</p>
+            </div>
+            <div class="item">
+                <img src="./imagens/roupas.jpg" alt="Roupas" class="mainCardImg">
+                <figcaption>ROUPAS</figcaption>
+                <p style="font-family: Arial, Helvetica, sans-serif;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus illo nemo aliquam nam commodi? Ipsum facere iusto, voluptatem quo voluptatibus nobis!</p>
+            </div>
+            <div class="item">
+                <img src="./imagens/basquete.jpg" alt="Basquete" class="mainCardImg">
+                <figcaption>BASQUETE</figcaption>
+                <p style="font-family: Arial, Helvetica, sans-serif;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus illo nemo aliquam nam commodi? Ipsum facere iusto, voluptatem quo voluptatibus nobis!</p>
+            </div>
+            <div class="item">
+                <img src="./imagens/corrida.jpg" alt="Corrida" class="mainCardImg">
+                <figcaption>CORRIDA</figcaption>
+                <p style="font-family: Arial, Helvetica, sans-serif;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus illo nemo aliquam nam commodi? Ipsum facere iusto, voluptatem quo voluptatibus nobis!</p>
+            </div>
+
+            <div class="item">
+                <img src="./imagens/surf.jpg" alt="Surf" class="mainCardImg">
+                <figcaption>SURF</figcaption>
+                <p style="font-family: Arial, Helvetica, sans-serif;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus illo nemo aliquam nam commodi? Ipsum facere iusto, voluptatem quo voluptatibus nobis!</p>
+            </div>
+            <div class="item">
+                <img src="./imagens/trilha.jpg" alt="Trilha" class="mainCardImg">
+                <figcaption>TRILHA</figcaption>
+                <p style="font-family: Arial, Helvetica, sans-serif;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus illo nemo aliquam nam commodi? Ipsum facere iusto, voluptatem quo voluptatibus nobis!</p>
+            </div>
+            <div class="item">
+                <img src="./imagens/tenis.jpg" alt="Tênis" class="mainCardImg">
+                <figcaption>TÊNIS</figcaption>
+                <p style="font-family: Arial, Helvetica, sans-serif;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus illo nemo aliquam nam commodi? Ipsum facere iusto, voluptatem quo voluptatibus nobis!</p>
+            </div>
+        </section>
+        
+    </div>
+    <footer class="footer">
+        <img src="../htmlPizzas/imagens/logo-onebitcode.svg" alt="OneBitSports" style="width: 200px; align-items: center; padding: 10px;">
+        <br>
+        <a href="#anchor">Volte para o topo.</a>
+    </footer>
+</body>
+</html>
