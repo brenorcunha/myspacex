@@ -1,0 +1,90 @@
+<!--
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OJE</title>
+    <script>
+        const atacante = prompt("Qual o nome do personagem atacante?")
+        const pa = prompt("Quanto é o poder do personagem atacante?") //100
+        const defensor = prompt("Qual o nome do personagem defensor?")
+        const pd = prompt("Quanto é a defesa do personagem defensor?") //50
+        let pv = prompt("Quantos pontos de vida tem seu personagem?") //50
+        const possuiEscudo = prompt("Possui escudo? - Por favor preencha com s ou n")
+        causouDano = 0
+        const poderdeAtaque = parseInt(pa, 10)
+        const poderdeDefesa = parseInt(pd, 10)
+        let pontosdeVida = parseInt(pv, 10)
+        
+        if (poderdeAtaque > poderdeDefesa && possuiEscudo == "n") {
+            causouDano = poderdeAtaque - poderdeDefesa
+            pontosdeVida -= causouDano
+            alert("O "+atacante + " causou " + causouDano + " pontos de danos em " + defensor + "\nRestam " + pontosdeVida + " pontos de vida ao defensor.")
+            if (pontosdeVida <=  0) alert("Defensor morreu! ")
+        } else if (poderdeAtaque > poderdeDefesa && possuiEscudo == "s") {
+            causouDano = (poderdeAtaque - poderdeDefesa) / 2
+            pontosdeVida -= causouDano;
+            alert("O " + atacante + " causou " + causouDano + " pontos de danos em " + defensor + "\nRestam " + pontosdeVida + " pontos de vida ao defensor.")
+            if (pontosdeVida <=  0) alert("Defensor morreu! ")
+        } else {
+           alert("Não causou dano." + "\nRestam " + pontosdeVida + " pontos de vida ao defensor.")
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>
+-->
+
+<!DOCTYPE html>
+<html>
+<title>Online Javascript Editor</title>
+<head>
+    <script>
+        const medida = prompt("Bem-vindo ao conversor de medidas: "+
+        "Insira a medida em metros: ")
+        const opcoes = prompt("Para converter para milímetros (mm) insira 1." +
+        "\nPara converter para centímetros (cm) insira 2." + 
+        "\nPara converter para decímetros (dm) insira 3." + 
+        "\nPara converter para decâmetros (dam) insira 4." + 
+        "\nPara converter para hectômetros (hm) insira 5." + 
+        "\nE para converter para quilômetros (km) insira 6.")
+     
+        // var medida = parseInt(vm, 10)
+        var opcao = parseInt(opcoes, 10)
+        switch (opcao){
+            case 2:
+            var res = medida*100
+            alert(medida + " m  = " + res + " cm.")
+            break
+            case 3:
+            var res = medida*10
+            alert(medida + " m  = " + res + " dm.")
+            break
+            case 4:
+            var res = medida/10
+            alert(medida + " m  = " + res + " dam.")
+            break
+            case 1:
+            var res = medida*1000
+            alert(medida + " m  = " + res + " mm.")
+            break
+            case 5:
+            var res = medida/100
+            alert(medida + " m  = " + res + " hm.")
+            break
+            case 6:
+            var res = medida/1000
+            alert(medida + " m  = " + res + " km.")
+            break
+            
+            default:
+            alert("Opção inválida!")
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>
