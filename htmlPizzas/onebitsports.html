@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=d24ice-width, 24itial-scale=1.0">
     <title>Projeto FlexBox e Grid</title>
     <style>
-        blockquote, dl, dd, h1, h2, h3, h4, h5, h6, hr, figure, p, pre {
+        * {
             margin: 0;
             padding: 0;
-            /* box-sizing: border-box; */
+            box-sizing: border-box;
         }
         p{
             font-family: Arial, Helvetica, sans-serif;
@@ -59,11 +59,12 @@
             width: 280px;
             height: 380px;
             font-size: 14px;
+            padding: 5px;
             display: grid;
             justify-content: center; 
             align-items: center;
-            border: 2px solid transparent;
-            /* grid-auto-rows: minmax(240px, 300px); */
+            border-radius: 10px;
+            border: 1px solid transparent;
         }
         .item:hover{
             border-color: black;
@@ -84,7 +85,7 @@
             border: 2px solid transparent;
             border-radius: 10px;
         }
-        aside {
+        .aside {
             width: 20%;
             min-width: 300px;
             padding: 16px;
@@ -94,11 +95,12 @@
             justify-content: center;
             text-align: center;
             align-items: center;
+            gap: 10px; /*Para dar espaçamento entre os itens da sideBar (aside) */
             }
             .sideBarCard{
                 width: 90%;
                 border: 1px solid transparent;
-                border-radius: 10px;
+                border-radius: 10px; /*Parametro que deixa  a borda arredondada.*/
                 transition: 0.5s;
                 cursor: pointer;
             }
@@ -123,8 +125,10 @@
               .container{
                 display: grid;
               }
-              aside{
-                min-width: auto;
+              .aside{
+                /* min-width: auto; */
+                float:none;
+                /* float: none faz a DIV usar o alinhamento padrão.*/
               }
             }
     </style>
@@ -140,8 +144,9 @@
     <h1 style="text-align: center; font-family: Arial, Helvetica, sans-serif; border-top: 10px;" id="anchor">BEM-VINDO À ONEBITSPORTS!</h1>
     
     <p style="color: #383838; text-align: center;">Aqui você encontra todos os itens mais novos e modernos do seu esporte preferido. </p>
-    <aside class="aside">
-        <p>CATEGORIAS EXTRAS: </p>
+    <div class="aside">
+        <h3>CATEGORIAS EXTRAS: </h3>
+        <br>
         <div class="sideBarCard">
             <img src="./imagens/bicicletas.jpg" alt="Bicicletas" class="mainCardImg">
             <p>BICICLETAS</p>
@@ -158,7 +163,7 @@
             <img src="./imagens/yoga.jpg" alt="Yoga" class="mainCardImg">
             <p>YOGA</p>
         </div>
-    </aside>
+    </div>
     <div class="container">
         <section class="main-content">
             <div class="item">

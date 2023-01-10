@@ -1,12 +1,4 @@
 <!--
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OJE</title>
-    <script>
         const atacante = prompt("Qual o nome do personagem atacante?")
         const pa = prompt("Quanto é o poder do personagem atacante?") //100
         const defensor = prompt("Qual o nome do personagem defensor?")
@@ -31,18 +23,8 @@
         } else {
            alert("Não causou dano." + "\nRestam " + pontosdeVida + " pontos de vida ao defensor.")
         }
-    </script>
-</head>
-<body>
-</body>
-</html>
--->
-
-<!DOCTYPE html>
-<html>
-<title>Online Javascript Editor</title>
-<head>
-    <script>
+    
+    //CONVERSOR DE MEDIDAS: 
         const medida = prompt("Bem-vindo ao conversor de medidas: "+
         "Insira a medida em metros: ")
         const opcoes = prompt("Para converter para milímetros (mm) insira 1." +
@@ -83,6 +65,38 @@
             default:
             alert("Opção inválida!")
         }
+-->
+
+<!DOCTYPE html>
+<html>
+<title>OJE</title>
+<head>
+    <script>
+        var cidades = new Array("Adamantina", "Adolfo", "Aguaí", "Águas da Prata", "Águas de Lindoia", "Águas de Santa Bárbara", "Águas de São Pedro", "Agudos", "Alambari", "Alfredo Marcondes", "Altair",  "Altinópolis", "Alto Alegre", "Alumínio", "Álvares Florence", "Álvares Machado", "Álvaro de Carvalho", "Alvinlândia", "Americana")
+        var cidadesVisitadas = new Array()
+        var answer = "s"
+        while(answer==="s"){
+            var nome = prompt("Qual é o seu nome? ")
+            for (i=0; i<=18; i  ){
+                var op = prompt("Você já visitou " + cidades[i] + "? (s/n)")
+                if(cidades[i]==="Águas de Lindoia"){
+                    answer="n"
+                    alert("Cidades visitadas por "  + nome +  ": "  + cidadesVisitadas)
+                    break
+                }
+
+                if(op==="s"){
+                    cidadesVisitadas[i]=cidades[i]
+                } else{
+                    op = prompt("Quer finalizar? (s/n)")
+                    if(op==="s") {
+                        answer="n"
+                        alert("Cidades visitadas por " + nome + ": " + cidadesVisitadas)
+                        break
+                }
+                }
+            }
+        } 
     </script>
 </head>
 <body>

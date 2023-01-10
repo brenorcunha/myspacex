@@ -82,7 +82,9 @@ let subt = document.write("\n Subtração: ", num1-num2);
 let mult = document.write("\n Multiplicação: ", num1*num2);
 let divi = document.write("\n Divisão: ", num1/num2); 
 
-//document.write((9 < 5) && (0 >= 7) && false);
+//document.write((9 < 5) && (0 >= 7) && false); SÒ PRA VER O QUE RETORNA.
+
+//ALGORITMO COMPARAÇÃO DE VELOCIDADES: 
 var nv1 = prompt("Insira o nome do veículo 1: ");
 var tmp = prompt("Insira a velocidade em KM/H do mesmo: ");
 var vv1 = parseInt(tmp, 10);
@@ -92,33 +94,4 @@ var tmp = prompt("Insira a velocidade em KM/H do mesmo: ");
 var vv2 = parseInt(tmp, 10);
 
 if (vv1===vv2){document.write( "Ambos têm a mesma veloccittà");} else if (vv1>vv2){document.write("Veículo 1 é mais rápido");} else {document.write("Veículo 2 é mais rápido.");}
-
-//ALGORITMO COMPARADOR DE DANOS - DUELO JOGO: 
-
-const charName1 = prompt("Qual o nome do personagem atacante?");
-const char1AtkString = prompt("Qual o poder do personagem atacante?");
-const charName2 = prompt("Qual o nome do personagem defensor?");
-const char2DefString = prompt("Qual a defesa do personagem defensor?");
-const char2LifeString = prompt("Quantos pontos de vida tem seu personagem?");
-const shield = prompt("Possui escudo? - Por favor preencha com sim ou não");
-
-const char1Atk = parseFloat(char1AtkString);
-const char2Def = parseFloat(char2DefString);
-const char2Life = parseFloat(char2LifeString);
-
-if (char1Atk > char2Def && shield === "não") {
-  let fulldamage = char1Atk - char2Def;
-  let newlife = char2Life - fulldamage;
-  alert(`${charName1} causou ${fulldamage} de dano
-  \n${charName2} tem agora ${newlife} de vida`);
-} else if (char1Atk > char2Def && shield === "sim") {
-  let demage = (char1Atk - char2Def) / 2;
-  let newlife = char2Life - demage;
-  alert(`${charName1}  causou ${demage} de dano
-  \n${charName2} tem agora ${newlife} de vida`);
-} else if (char1Atk < char2Def) {
-  alert(`${charName1} não causou dano
-  \n${charName2} continua com ${char2Life} de vida`);
-} else "infelizmente não pudemos concluir o seu jogo, tente novamente";
-
 */
