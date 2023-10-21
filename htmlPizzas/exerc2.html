@@ -1,104 +1,254 @@
-<!--
-        const atacante = prompt("Qual o nome do personagem atacante?")
-        const pa = prompt("Quanto é o poder do personagem atacante?") //100
-        const defensor = prompt("Qual o nome do personagem defensor?")
-        const pd = prompt("Quanto é a defesa do personagem defensor?") //50
-        let pv = prompt("Quantos pontos de vida tem seu personagem?") //50
-        const possuiEscudo = prompt("Possui escudo? - Por favor preencha com s ou n")
-        causouDano = 0
-        const poderdeAtaque = parseInt(pa, 10)
-        const poderdeDefesa = parseInt(pd, 10)
-        let pontosdeVida = parseInt(pv, 10)
-        
-        if (poderdeAtaque > poderdeDefesa && possuiEscudo == "n") {
-            causouDano = poderdeAtaque - poderdeDefesa
-            pontosdeVida -= causouDano
-            alert("O "+atacante + " causou " + causouDano + " pontos de danos em " + defensor + "\nRestam " + pontosdeVida + " pontos de vida ao defensor.")
-            if (pontosdeVida <=  0) alert("Defensor morreu! ")
-        } else if (poderdeAtaque > poderdeDefesa && possuiEscudo == "s") {
-            causouDano = (poderdeAtaque - poderdeDefesa) / 2
-            pontosdeVida -= causouDano;
-            alert("O " + atacante + " causou " + causouDano + " pontos de danos em " + defensor + "\nRestam " + pontosdeVida + " pontos de vida ao defensor.")
-            if (pontosdeVida <=  0) alert("Defensor morreu! ")
-        } else {
-           alert("Não causou dano." + "\nRestam " + pontosdeVida + " pontos de vida ao defensor.")
-        }
-    
-    //CONVERSOR DE MEDIDAS: 
-        const medida = prompt("Bem-vindo ao conversor de medidas: "+
-        "Insira a medida em metros: ")
-        const opcoes = prompt("Para converter para milímetros (mm) insira 1." +
-        "\nPara converter para centímetros (cm) insira 2." + 
-        "\nPara converter para decímetros (dm) insira 3." + 
-        "\nPara converter para decâmetros (dam) insira 4." + 
-        "\nPara converter para hectômetros (hm) insira 5." + 
-        "\nE para converter para quilômetros (km) insira 6.")
-     
-        // var medida = parseInt(vm, 10)
-        var opcao = parseInt(opcoes, 10)
-        switch (opcao){
-            case 2:
-            var res = medida*100
-            alert(medida + " m  = " + res + " cm.")
-            break
-            case 3:
-            var res = medida*10
-            alert(medida + " m  = " + res + " dm.")
-            break
-            case 4:
-            var res = medida/10
-            alert(medida + " m  = " + res + " dam.")
-            break
-            case 1:
-            var res = medida*1000
-            alert(medida + " m  = " + res + " mm.")
-            break
-            case 5:
-            var res = medida/100
-            alert(medida + " m  = " + res + " hm.")
-            break
-            case 6:
-            var res = medida/1000
-            alert(medida + " m  = " + res + " km.")
-            break
-            
-            default:
-            alert("Opção inválida!")
-        }
--->
-
 <!DOCTYPE html>
-<html>
-<title>OJE</title>
+<html lang="pt-br">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <script>
-        var cidades = new Array("Adamantina", "Adolfo", "Aguaí", "Águas da Prata", "Águas de Lindoia", "Águas de Santa Bárbara", "Águas de São Pedro", "Agudos", "Alambari", "Alfredo Marcondes", "Altair",  "Altinópolis", "Alto Alegre", "Alumínio", "Álvares Florence", "Álvares Machado", "Álvaro de Carvalho", "Alvinlândia", "Americana")
-        var cidadesVisitadas = new Array()
-        var answer = "s"
-        while(answer==="s"){
-            var nome = prompt("Qual é o seu nome? ")
-            for (i=0; i<=18; i  ){
-                var op = prompt("Você já visitou " + cidades[i] + "? (s/n)")
-                if(cidades[i]==="Águas de Lindoia"){
-                    answer="n"
-                    alert("Cidades visitadas por "  + nome +  ": "  + cidadesVisitadas)
-                    break
+        var listadeVagas= [,] // Declarada posicao 0 do array como vazia, assim ela não existirah
+        let op=0
+        do{
+            var ind = listadeVagas.length //Criando a var ind e pegando ela -1 a seguir ignora a pos[0] do array.
+            op=prompt("Bem vindo ao sistema de vagas de RH:"+
+            "\nTemos "+ (ind-1) + " vaga(s) disponíveis. "+
+            "\nPara exibir as vagas disponíveis, tecle 1"+
+            "\nPara cadastrar uma nova vaga, tecle 2"+
+            "\nPara visualizar uma vaga, tecle 3"+
+            "\n Para inscrever um candidato em uma vaga, tecle 4"+
+            "\n Para excluir uma vaga, tecle 5"+
+            "\nPara sair, tecle 6")
+            
+            if(op==1){
+                /* for (i=1; i<listadeVagas.length;i++){
+                console.log(i + "a vaga: " + listadeVagas[i])
+                } */
+                if(listadeVagas == ""){window.alert ("Sorry, no candidates!")} else{alert("Look at console table to see --->"),
+				console.table(listadeVagas)}
+            }else if(op==2){
+                let nome = prompt("Informe o título da vaga: ")
+                let descricao = prompt("Informe a descrição da vaga: ")
+                let data = prompt("informe a data limite (dd/mm/aa) para inscrição")
+                
+                const conf = confirm("Deseja realmente salvar essas infos?" + "\bvaga: " + nome + "\bDescrição: " + descricao + "\bData máxima" + data)
+                if (conf){
+                    const novaVaga = {nome, descricao, data, inscritos:[]}
+                    listadeVagas.push(novaVaga)
+                    console.log("Vaga criada.")
                 }
-
-                if(op==="s"){
-                    cidadesVisitadas[i]=cidades[i]
-                } else{
-                    op = prompt("Quer finalizar? (s/n)")
-                    if(op==="s") {
-                        answer="n"
-                        alert("Cidades visitadas por " + nome + ": " + cidadesVisitadas)
-                        break
+                
+            } else if(op==3){
+                let id = prompt("informe o ID da vaga: ")
+                console.table(listadeVagas[id])
+            } else if(op==4){
+                let cand = prompt("Informe o nome do candidato: ")
+                let id = prompt("informe o ID da vaga: ")
+                const conf = confirm("Deseja realmente salvar essas infos? Não houve erros?" +
+                "Vaga: "+ id + " Candidato: "+ cand + " ?")
+                const vaga = listadeVagas[id]
+                if(conf){
+                    vaga.inscritos.push(cand)
+                    console.log("Inscrição realizada.")
                 }
-                }
+            } else if (op==5){
+                let id = prompt("informe o ID da vaga: ")
+                vaga = listadeVagas[id]
+                const conf = confirm("Deseja realmente excluir essas infos?" +
+                "Vaga: "+ id + " Descrição: " + vaga.descricao + " ?")
+                var remover = listadeVagas.splice(id,1)
+            }else if (op==6){console.log("saindo...")}
+            else {
+                console.log("Opção errada!")
             }
-        } 
+        } while(op!=6)
     </script>
 </head>
 <body>
 </body>
+<!-- var cidades = new Array("Adamantina", "Adolfo", "Aguaí", "Águas da Prata", "Águas de Lindoia", "Águas de Santa Bárbara", "Águas de São Pedro", "Agudos", "Alambari", "Alfredo Marcondes", "Altair",  "Altinópolis", "Alto Alegre", "Alumínio", "Álvares Florence", "Álvares Machado", "Álvaro de Carvalho", "Alvinlândia", "Americana")
+var cidadesVisitadas = new Array()
+var answer = "s"
+while(answer==="s"){
+    var nome = prompt("Qual é o seu nome? ")
+    for (i=0; i<cidades.length; i++){
+        var op = prompt("Você já visitou " + cidades[i] + "? (s/n)")
+        if(op==="s"){
+            cidadesVisitadas[i]=cidades[i]
+        } else{
+            op = prompt("Quer finalizar? (s/n)")
+            if(op==="s") {  
+                answer="n"
+                const cidadesVisitadasF = cidadesVisitadas.filter(function(i){return i;});
+                alert("Cidades visitadas por " + nome + ": " + cidadesVisitadasF)
+                break
+                }
+        }
+        }
+}
+=============================
+const atacante = prompt("Qual o nome do personagem atacante?")
+const pa = prompt("Quanto é o poder do personagem atacante?") //100
+const defensor = prompt("Qual o nome do personagem defensor?")
+const pd = prompt("Quanto é a defesa do personagem defensor?") //50
+let pv = prompt("Quantos pontos de vida tem seu personagem?") //50
+const possuiEscudo = prompt("Possui escudo? - Por favor preencha com s ou n")
+causouDano = 0
+const poderdeAtaque = parseInt(pa, 10)
+const poderdeDefesa = parseInt(pd, 10)
+let pontosdeVida = parseInt(pv, 10)
+
+if (poderdeAtaque > poderdeDefesa && possuiEscudo == "n") {
+	causouDano = poderdeAtaque - poderdeDefesa
+	pontosdeVida -= causouDano
+	alert("O "+atacante + " causou " + causouDano + " pontos de danos em " + defensor + "\nRestam " + pontosdeVida + " pontos de vida ao defensor.")
+	if (pontosdeVida <=  0) alert("Defensor morreu! ")
+} else if (poderdeAtaque > poderdeDefesa && possuiEscudo == "s") {
+	causouDano = (poderdeAtaque - poderdeDefesa) / 2
+	pontosdeVida -= causouDano;
+	alert("O " + atacante + " causou " + causouDano + " pontos de danos em " + defensor + "\nRestam " + pontosdeVida + " pontos de vida ao defensor.")
+	if (pontosdeVida <=  0) alert("Defensor morreu! ")
+} else {
+   alert("Não causou dano." + "\nRestam " + pontosdeVida + " pontos de vida ao defensor.")
+}
+
+//CONVERSOR DE MEDIDAS: 
+const medida = prompt("Bem-vindo ao conversor de medidas: "+
+"Insira a medida em metros: ")
+const opcoes = prompt("Para converter para milímetros (mm) insira 1." +
+"\nPara converter para centímetros (cm) insira 2." + 
+"\nPara converter para decímetros (dm) insira 3." + 
+"\nPara converter para decâmetros (dam) insira 4." + 
+"\nPara converter para hectômetros (hm) insira 5." + 
+"\nE para converter para quilômetros (km) insira 6.")
+
+// var medida = parseInt(vm, 10)
+var opcao = parseInt(opcoes, 10)
+switch (opcao){
+	case 2:
+	var res = medida*100
+	alert(medida + " m  = " + res + " cm.")
+	break
+	case 3:
+	var res = medida*10
+	alert(medida + " m  = " + res + " dm.")
+	break
+	case 4:
+	var res = medida/10
+	alert(medida + " m  = " + res + " dam.")
+	break
+	case 1:
+	var res = medida*1000
+	alert(medida + " m  = " + res + " mm.")
+	break
+	case 5:
+	var res = medida/100
+	alert(medida + " m  = " + res + " hm.")
+	break
+	case 6:
+	var res = medida/1000
+	alert(medida + " m  = " + res + " km.")
+	break
+	
+	default:
+	alert("Opção inválida!")
+}
+=====================================================================================================
+//Printando array multidim: 
+var a = new Array(4);
+for (i = 0; i < 4; i++) {
+  a[i] = new Array(4);
+  for (j = 0; j < 4; j++) {
+    a[i][j] = '[' + i + ',' + j + ']';
+	console.log(a[i][j])
+  }
+}
+------
+a=[['a','b','c','d'],['e','f','g','h'],['i','j','k','l'],['m','n','o','p']]
+for (i = 0; i < 4; i++) {
+  for (j = 0; j < 4; j++) {
+	console.log(a[i][j])
+  }
+}
+=====================================================================================================
+var filadeEspera = ["Breno"]
+let op = 1
+while(op!=3){
+	console.log("Fila de espera: ")
+	for (i=0; i<filadeEspera.length;i++){
+		console.log(i+1 + " paciente: " + filadeEspera[i])
+	}
+	op = prompt("para adicionar paciente à fila, tecle 1. " +
+	"\n Para consulta do mesmo, 2" +
+	"\n Para sair, tecle 3")
+	if(op=="1"){
+		let nome = prompt("Insira o nome: ")
+		filadeEspera.push(nome)
+	} else if(op=="2"){
+		let nome = filadeEspera.shift()
+		alert("paciente: "+nome + " sendo atendido")
+	} else if(op=="3"){
+		alert("gettin' out... ")
+		
+	} else {console.log("Opção inválida!")}
+}
+-------
+var listadeimoveis= []
+let op=1
+while(op!=3){
+	op=prompt("Bem vindo ao sistema de cadastro de imóveis:"+
+	"\nTemos "+ listadeimoveis.length + " imóveis cadastrados. "+
+	"\nPara cadastrar um novo imóvel, tecle 1"+
+	"\nPara exibir os imóveis salvos, tecle 2"+
+	"\nPara sair, tecle 3")
+	
+	if(op==1){
+		let prop = prompt("Informe o nome do proprietário: ")
+		let quartos = prompt("Informe a quantidade de quartos: ")
+		let banhos = prompt("Informe a quantidade de banheiros: ")
+		let garagem = prompt("O imóvel possui garagem? (s/n)")
+		if (garagem=='s'){garagem=true} else {garagem=false}
+		
+		const conf = confirm("Deseja realemnte salvar essas infos? Não houve erros?")
+		if (conf){listadeimoveis.push([prop, quartos, banhos, garagem])}
+		
+	}else if(op==2){
+		for (i=0; i<listadeimoveis.length;i++){
+		console.log(i+1 + "° imóvel: " + listadeimoveis[i])
+		}
+		//console.table(listadeimoveis)
+	} else if(op==3){
+		console.log("Saindo...")
+		break
+	} else {
+		console.log("Opção errada!")
+	}
+}
+--------
+var x = 15;
+
+function createFunction1() {
+  return x;
+}
+
+function createFunction2() {
+  var x=20
+  function f() {
+      return x; // this `x` refers to the local `x` above
+  }
+  return x;
+}
+const f1 = createFunction1()
+console.log(f1)
+const f2 = createFunction2()
+console.log(f2)
+-----------------------
+const lista = ["Maçã", "Banana", "Laranja", "Limão", "Uva"]
+lista.forEach(function (elemento, indice, array) {
+  console.log({
+    elemento,
+    indice,
+    array
+  })
+})
+  --> 
 </html>
