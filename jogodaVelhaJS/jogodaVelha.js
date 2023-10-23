@@ -10,12 +10,31 @@ const item9 = document.getElementById("item9")
 const its = document.querySelectorAll('item')
 
 function comecaJogo(){
-    //EQUI!
-    its.forEach(function(item){
+    /* its.forEach(item => {
         item.classList.remove('win')
-        item.textContent = ' '
-    })
+        item.innerText = ' '
+    }); 
     
+    QUERO REDUZIR AS LINHAS ABAIXO COM forEach, COMO ACIMA, MAS NÃO FUNCIONA*/
+    item1.classList.remove('win')
+    item1.innerText = ''
+    item2.classList.remove('win')
+    item2.innerText = ''
+    item3.classList.remove('win')
+    item3.innerText = ''
+    item4.classList.remove('win')
+    item4.innerText = ' '
+    item5.classList.remove('win')
+    item5.innerText = ' '
+    item6.classList.remove('win')
+    item6.innerText = ' '
+    item7.classList.remove('win')
+    item7.innerText = ' '
+    item8.classList.remove('win')
+    item8.innerText = ' '
+    item9.classList.remove('win')
+    item9.innerText = ' '
+
     let nome1 = prompt("insira o nome do jogador 1: ")
     let nome2 = prompt("insira o nome do jogador 2: ")
 
@@ -27,7 +46,7 @@ function comecaJogo(){
     input1.innerText = nome1
     input2.innerText = nome2
 
-    item1.addEventListener('click',function(){
+    item1.addEventListener('click',function clicked(){
         if(jogadorDaVez.textContent == "Jogador da vez: " + nome1) {
             item1.textContent = 'X'
             jogadorDaVez.textContent = "Jogador da vez: " + nome2
@@ -37,10 +56,12 @@ function comecaJogo(){
             jogadorDaVez.textContent = "Jogador da vez: " + nome1
             document.getElementById('jogadorDaVez').textContent = "Jogador da vez: " + nome1
         }
+        item1.classList.remove('cursor-pointer')
+        item1.removeEventListener('click', clicked)
         encerraJogo()
     })
     
-    item2.addEventListener('click',function(){
+    item2.addEventListener('click',function clicked(){
         if (jogadorDaVez.textContent == "Jogador da vez: " + nome1) {
             item2.textContent ='X'
             jogadorDaVez.textContent = "Jogador da vez: " + nome2
@@ -50,10 +71,12 @@ function comecaJogo(){
             jogadorDaVez.textContent = "Jogador da vez: " + nome1
             document.getElementById('jogadorDaVez').textContent = "Jogador da vez: " + nome1
         }
+        item2.classList.remove('cursor-pointer')
+        item2.removeEventListener('click', clicked)
         encerraJogo()
     })
     
-    item3.addEventListener('click',function(){
+    item3.addEventListener('click',function clicked(){
         if(jogadorDaVez.textContent == "Jogador da vez: " + nome1) {
             item3.textContent = 'X'
             jogadorDaVez.textContent = "Jogador da vez: " + nome2
@@ -63,9 +86,11 @@ function comecaJogo(){
             jogadorDaVez.textContent = "Jogador da vez: " + nome1
             document.getElementById('jogadorDaVez').textContent = "Jogador da vez: " + nome1
         }
+        item3.classList.remove('cursor-pointer')
+        item3.removeEventListener('click', clicked)
         encerraJogo()
     })
-    item4.addEventListener('click',function(){
+    item4.addEventListener('click',function clicked(){
         if(jogadorDaVez.textContent == "Jogador da vez: " + nome1) {
             item4.textContent = 'X'
             jogadorDaVez.textContent = "Jogador da vez: " + nome2
@@ -75,10 +100,12 @@ function comecaJogo(){
             jogadorDaVez.textContent = "Jogador da vez: " + nome1
             document.getElementById('jogadorDaVez').textContent = "Jogador da vez: " + nome1
         }
+        item4.classList.remove('cursor-pointer')
+        item4.removeEventListener('click', clicked)
         encerraJogo()
     })
     
-    item5.addEventListener('click',function(){
+    item5.addEventListener('click',function clicked(){
         if(jogadorDaVez.textContent == "Jogador da vez: " + nome1) {
             item5.textContent = 'X'
             jogadorDaVez.textContent = "Jogador da vez: " + nome2
@@ -88,9 +115,11 @@ function comecaJogo(){
             jogadorDaVez.textContent = "Jogador da vez: " + nome1
             document.getElementById('jogadorDaVez').textContent = "Jogador da vez: " + nome1
         }
+        item5.classList.remove('cursor-pointer')
+        item5.removeEventListener('click', clicked)
         encerraJogo()
     })
-    item6.addEventListener('click',function(){
+    item6.addEventListener('click',function clicked(){
         if(jogadorDaVez.textContent == "Jogador da vez: " + nome1) {
             item6.textContent = 'X'
             jogadorDaVez.textContent = "Jogador da vez: " + nome2
@@ -100,10 +129,12 @@ function comecaJogo(){
             jogadorDaVez.textContent = "Jogador da vez: " + nome1
             document.getElementById('jogadorDaVez').textContent = "Jogador da vez: " + nome1
         }
+        item6.classList.remove('cursor-pointer')
+        item6.removeEventListener('click', clicked)
         encerraJogo()
     })
     
-    item7.addEventListener('click',function(){
+    item7.addEventListener('click',function clicked(){
         if(jogadorDaVez.textContent == "Jogador da vez: " + nome1) {
             item7.textContent = 'X'
             jogadorDaVez.textContent = "Jogador da vez: " + nome2
@@ -113,10 +144,12 @@ function comecaJogo(){
             jogadorDaVez.textContent = "Jogador da vez: " + nome1
             document.getElementById('jogadorDaVez').textContent = "Jogador da vez: " + nome1
         }
+        item7.classList.remove('cursor-pointer')
+        item7.removeEventListener('click', clicked)
         encerraJogo()
     })
     
-    item8.addEventListener('click',function(){
+    item8.addEventListener('click',function clicked(){
         if(jogadorDaVez.textContent == "Jogador da vez: " + nome1) {
             item8.textContent = 'X'
             jogadorDaVez.textContent = "Jogador da vez: " + nome2
@@ -126,10 +159,12 @@ function comecaJogo(){
             jogadorDaVez.textContent = "Jogador da vez: " + nome1
             document.getElementById('jogadorDaVez').textContent = "Jogador da vez: " + nome1
         }
+        item8.classList.remove('cursor-pointer')
+        item8.removeEventListener('click', clicked)
         encerraJogo()
     })
     
-    item9.addEventListener('click',function(){
+    item9.addEventListener('click',function clicked(){
         if(jogadorDaVez.textContent == "Jogador da vez: " + nome1) {
             item9.textContent = 'X'
             jogadorDaVez.textContent = "Jogador da vez: " + nome2
@@ -139,6 +174,8 @@ function comecaJogo(){
             jogadorDaVez.textContent = "Jogador da vez: " + nome1
             document.getElementById('jogadorDaVez').textContent = "Jogador da vez: " + nome1
         }
+        item9.classList.remove('cursor-pointer')
+        item9.removeEventListener('click', clicked)
         encerraJogo()
     })
 }
