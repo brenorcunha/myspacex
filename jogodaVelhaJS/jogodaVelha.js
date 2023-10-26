@@ -7,15 +7,17 @@ const item6 = document.getElementById("item6")
 const item7 = document.getElementById("item7")
 const item8 = document.getElementById("item8")
 const item9 = document.getElementById("item9")
-const its = document.querySelectorAll('item')
+const elements = document.getElementsByClassName('item')
 
 function comecaJogo(){
-    /* its.forEach(item => {
-        item.classList.remove('win')
-        item.innerText = ' '
-    }); 
+    for (const element of elements)
+    {
+        element.classList.remove('win')
+        element.classList.add('cursor-pointer')
+        element.innerText = ' ' 
+    }
     
-    QUERO REDUZIR AS LINHAS ABAIXO COM forEach, COMO ACIMA, MAS NÃO FUNCIONA*/
+    /* REDUZIDAS AS LINHAS ABAIXO COM FOR: 
     item1.classList.remove('win')
     item1.innerText = ''
     item2.classList.remove('win')
@@ -33,7 +35,7 @@ function comecaJogo(){
     item8.classList.remove('win')
     item8.innerText = ' '
     item9.classList.remove('win')
-    item9.innerText = ' '
+    item9.innerText = ' ' */
 
     let nome1 = prompt("insira o nome do jogador 1: ")
     let nome2 = prompt("insira o nome do jogador 2: ")
@@ -293,10 +295,11 @@ function encerraJogo(){
         item7.classList.add('win')
         item5.classList.add('win')
         item3.classList.add('win')
-    } else if(item1.textContent!='' && item2.textContent!='' && item3.textContent!='' &&
-    item4.textContent!='' && item5.textContent!='' && item6.textContent!='' &&
-    item7.textContent!='' && item8.textContent!='' && item9.textContent!='' ){
-        alert("Jogo acabou, DEU VELHA!!!")
+    }
+    if (item1.textContent != ' ' && item2.textContent != ' ' && item3.textContent !=' ' &&
+    item4.textContent != ' ' && item5.textContent != ' ' && item6.textContent !=' ' &&
+    item7.textContent != ' ' && item8.textContent != ' ' && item9.textContent !=' '){
+        alert("Deu velha!")
     }
 }
 document.getElementById('start').addEventListener('click',comecaJogo)
