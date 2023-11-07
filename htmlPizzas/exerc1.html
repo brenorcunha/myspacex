@@ -11,12 +11,13 @@
             margin: 0;
             box-sizing: border-box;
         }
-        .header{
+        .header, .footer{
             background-color: black;
             display:flex;
             justify-content: space-between; /*fazer com que os itens fiquem afastados uns dos outros, não ligando para as bordas.*/
             align-items: center;/* alinhar os itens verticalmente*/
             padding: 10px 25px;
+            color: white;
         }
         
         .logo-rock{
@@ -75,21 +76,30 @@
             justify-content: center;
             align-content: center;/* Alinha caixas removendo espaços excessivos entre as linhas delas.*/
         }
-        .footer{
+        /* .footer{
             flex-basis: 100%;
             padding: 10px 25px;
             background-color: white;
             border: 2px solid black;
             display: flex;
             justify-content: center;
+        } */
+        .selected{
+            background-color: lightgray;
+            border: 4px solid transparent;
+            cursor: pointer;
+        }
+        .hidden{
+            /* Elementos ocultos */
+            display:none;
         }
     </style>
 </head>
 <body>
     <header class="header">
-        <img src="../imagens/iconrock-red.svg" alt="logo-rock" class="logo-rock">
+        <img src="./imagens/iconrock-red.svg" alt="logo-rock" class="logo-rock">
         <a href="index.html">
-        <img src="../imagens/logo-onebitcode.svg" alt="logo-onebitcode" class="logo-onebitcode"></a>
+        <img src="./imagens/logo-onebitcode.svg" alt="logo-onebitcode" class="logo-onebitcode"></a>
         <div class="buttons">
             <a href="index.html"><button class="buttonHeader">Início</button></a>
             <button class="buttonHeader">FAQ</button>
@@ -114,12 +124,12 @@
             <div class="item">
                 <p>Item 5</p>
             </div>
-            <div class="item">
+            <div class="item selected">
                 <p>Item 6</p>
             </div>
         </section>
         
     </div>
-    <footer class="footer"><b>FOOTER</b></footer>
+    <footer class="footer"><b>OneBitCode - Só para os melhores.</b></footer>
 </body>
 </html>

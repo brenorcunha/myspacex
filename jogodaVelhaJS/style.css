@@ -31,7 +31,7 @@ body{
     flex-wrap: wrap;
     gap: 8px 15px;
 }
-body .container .win{
+.container .win{
     background-color: #56df74; /* para deixar as casas vencedoras em destaque.*/
 }
 .item {

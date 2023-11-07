@@ -3,11 +3,59 @@
  <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
  <style>
        body{
+        /* GRADIENT EXMAPLE: background-image: linear-gradient(to bottom, #1368CA, #82FA6F); */
         background-image: url('https://i.redd.it/dqm4lzawzhj41.jpg');
         background-repeat: no-repeat;
         background-size: cover;
-        color: antiquewhite;
+        color: white;
     }
+    :root{
+        font-size: 16px;
+    }
+    section {
+			background-color: gray;
+			height: 200px;
+		}
+
+		.box {
+			border: 1px solid white;
+			display: inline-block;
+			font-size: 16px;
+			margin-top: 20px;
+			width: 75%;
+		}
+
+		.px {
+			height: 10px;
+		}
+
+		/* root element -> 16px * 3 = 48px */
+		.rem {
+			height: 3rem;
+		}
+
+		.em {
+			font-size: 16px;
+			padding: 1em; /* interno */
+		}
+
+		.prcnt-50 {
+			height: 50%;
+		}
+
+		.prcnt-100 {
+			height: 100%;
+		}
+
+		/* viewport height */
+		.vh {
+			height: 30vh;
+		}
+
+		/* viewport width */
+		.vw {
+			width: 15vw;
+		}
  </style>
 <head>
     <title>Viagens espaciais</title>
@@ -58,16 +106,92 @@
         </ul>
     </ul>
     <ul></ul>
+    <!-- e com a info 'controls' junto com autoplay exibe os contoles;
+        <video width="240" height="320" autoplay muted style="margin: 0 auto; display: block;">
+        <source src="video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+        </video> 
+        Exemplo de uso da imagem:
+        <picture>
+            <source media="(min-width:650px)" srcset="img_pink_flowers.jpg">
+            <source media="(min-width:465px)" srcset="img_white_flower.jpg">
+            <img src="img_orange_flowers.jpg" alt="Flowers" style="width:auto;">
+        </picture>
+
+        //MEDIA QUERY: 
+        @media (max-width: 320px){
+            //Quando chegar no 320px, para não quebrar a imagem, vai redimensionar.
+            .img-content{
+                width: 100%;
+                height: auto;
+                font-size:12px;
+            }
+        }
+        -->
     <!-- DIV pega aquela linha completa e aplica o estilo.-->
     <div style="border: 1px solid #fff; color: #fff;"><p> Andrômeda</p><p> Olho <span style="background-color: aquamarine;">negro</span></p><p> Cata vento</p></div>
-    <!-- SPAN pega apenas aquela área, aqule texto em específico.-->
-    <p style="color:#000; margin-left: 10%">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, quod sit numquam vitae nostrum, dignissimos cumque tenetur rerum suscipit, magni inventore sed fuga in aliquid officiis? Nam soluta qui accusamus.</p>
-    <p style="color:#000; margin-left: 10%;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, quod sit numquam vitae nostrum, dignissimos cumque tenetur rerum suscipit, magni inventore sed fuga in aliquid officiis? Nam soluta qui accusamus.</p>
-    <p style="color:#000; margin-left: 10%;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, quod sit numquam vitae nostrum, dignissimos cumque tenetur rerum suscipit, magni inventore sed fuga in aliquid officiis? Nam soluta qui accusamus.</p>
-    <p style="color:#000;margin-left: 10%;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, quod sit numquam vitae nostrum, dignissimos cumque tenetur rerum suscipit, magni inventore sed fuga in aliquid officiis? Nam soluta qui accusamus.</p>
-    
     <br>
+    <section>
+		
+		<div class="box px">10px</div>
+        <div class="box rem">3rem</div>
+        <div class="box em">2em</div>
+        <div class="box prcnt-50">50%</div>
+        <div class="box vh">30vh</div>
+        <div class="box vw">15vw</div>
+	</section>
     <a href="index.html">Volte para o index</a>
-    <a href="aside.html">Vá para o ASIDE</a>
+    <!--
+        font-weight: 500; #Vai deixando a fonte mais grossa.
+        line-height: 2; #Espaçamento entre as linhas.
+        text-decoration: underline; #Como o proprio nome já diz...
+
+        MARGIN------------------------|
+        |   BORDER------------------| | EXTERNA
+        |    |    PADDING---------- | | INTERNA (Se adc espaço, vai para dentro do elemento.)
+        |    |    |    ELEMENT    | | |
+
+    CSS Selectors:
+    class = "abc" no CSS: .abc{ }
+    id="abc" no CSS: #abc{ 
+    tag's comuns<header><body> no CSS: header, footer { } Inclusive pode aplicar em várias, espec. por vírgula.
+    No CSS:
+    li a { } Seletor em todos os a's (links em geral) que estejam numa listagem(li).
+    li > a {  } Seletor em todos os a's filhso DIRETOS de li.
+    h1 + h4 {  } Seletor em todo h4 que venha LOGO APÓS um h1.
+    a[href='/main'] {  } seletor em todos os href em a's que possuam main no texto.
+    li:nth-of-type(2) {  }Seletor em todos os segundos elementos de listas da página.
+    li:nth-of-type(odd) {  } Seletor em todos os números ímpares da página.
+
+    /* combinação de seletores */
+    #secao-principal > * {
+        margin-top: 10px;
+    }	 
+
+    input {
+        display: block;
+        padding: 5px;
+        margin: 5px;
+    }
+
+    /* seletor de sequência */
+    input + input {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    h2 + p {
+        padding: 30px;
+    }
+
+    /* seletores de propriedade */
+    input[name="email"] {
+        background-color: #f5a623;
+    }
+
+    input[type="password"] {
+        background-color: #27ae60;
+    }
+    -->
+    
 </body>
 </html>
