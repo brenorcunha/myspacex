@@ -82,29 +82,3 @@
 	    });
 	}
 })(window,document);
-
-
-/*CALCULADORA SIMPLES: 
-const x = prompt("Informe um numero: ");
-num1 = parseInt(x, 10);
-const y = prompt("Informe o segundo numero: ");
-num2 = parseInt(y, 10);
-
-let soma = document.write("Soma: ", num1+num2);
-let subt = document.write("\n Subtração: ", num1-num2);
-let mult = document.write("\n Multiplicação: ", num1*num2);
-let divi = document.write("\n Divisão: ", num1/num2); 
-
-//document.write((9 < 5) && (0 >= 7) && false); SÒ PRA VER O QUE RETORNA.
-
-//ALGORITMO COMPARAÇÃO DE VELOCIDADES: 
-var nv1 = prompt("Insira o nome do veículo 1: ");
-var tmp = prompt("Insira a velocidade em KM/H do mesmo: ");
-var vv1 = parseInt(tmp, 10);
-
-var nv2 = prompt("Insira o nome do veículo 2: ");
-var tmp = prompt("Insira a velocidade em KM/H do mesmo: ");
-var vv2 = parseInt(tmp, 10);
-
-if (vv1===vv2){document.write( "Ambos têm a mesma veloccittà");} else if (vv1>vv2){document.write("Veículo 1 é mais rápido");} else {document.write("Veículo 2 é mais rápido.");}
-*/

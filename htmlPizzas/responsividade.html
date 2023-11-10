@@ -9,12 +9,15 @@
         *{
              margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            box-sizing: border-box
+			/* 'border-box' faz com que o espaço se ajuste apenas à borda, padding e conteúdo.
+			'content-box' faz com que a 'caixa'(espaço) se ajuste ao conteúdo apenas.
+			*/
         }
         .container{
             background-color: darkgray;
             min-height: 100vh;
-            /*vh = viewboard heigth*/
+            /*vh = Viewport heigth*/
             display: flex; /*Exibe o flex em blocos de linha*/
             flex-direction: column; /*Exibe em forma de coluna
             row-gap: 0px; Espaçamento entre linhas
