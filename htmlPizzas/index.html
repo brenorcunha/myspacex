@@ -7,6 +7,20 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <meta name="keywords" content="HTML5, PIZZAS">
     <link rel='stylesheet' type='text/css' href='style.css'>
+    <script type="text/javascript" src="./javascript.js" defer></script>
+    <script>
+        function exportReportToExcel() {
+        // TableToExcel.convert(document.getElementById("table"), {
+	    // name: "planilha.xlsx",
+	    // sheet: {
+		// name: "planilha"
+	    // }
+	    // });
+		XLSX.utils.html.save_table_as_excel(document.getElementById("table"), {
+			name: "pizza_data.xlsx"
+		  });
+	}
+    </script>
 </head>
 <body>
     <!-- âncoras:
@@ -65,8 +79,11 @@
         <button id="btnExport" onclick="exportReportToExcel(this)">Tabela</button>
      </section>
     <br>
-    <script src='javascript.js'></script>
-    <script type="text/javascript" src="tableToExcel.js"></script>
+    
+    <script type="text/javascript" src="TableToExcel.js"></script>
+    <script  type="text/javascript" src="./lib/xlsx.core.min.js"></script>
+    <script  type="text/javascript" src="./dist/xlsx_html_utils.min.js"></script>
+    <script  type="text/javascript" src="./lib/FileSaver.min.js"></script>
 </body>
     <footer>
         <ul>

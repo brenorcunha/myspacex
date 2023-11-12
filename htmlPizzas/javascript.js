@@ -7,7 +7,6 @@
 	btVendas.addEventListener('click',venda,false);
 	btEstorno.addEventListener('click',estorno,false);
 
-
 	let somaMussarela = 0;
 	let somaMista = 0;
 	let somaCalabresa = 0;
@@ -71,14 +70,5 @@
 		    document.getElementById("resultadoCalabresa").innerHTML = somaCalabresa;
 		    document.getElementById("vendaCalabresa").innerHTML = vendaCalabresa;
 	    }
-	}
-
-	function exportReportToExcel() {
-        TableToExcel.convert(document.getElementById("table"), {
-	    name: "planilha.xlsx",
-	    sheet: {
-		name: "planilha"
-	    }
-	    });
 	}
 })(window,document);

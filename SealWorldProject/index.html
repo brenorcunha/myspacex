@@ -9,12 +9,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body>
     <main>
         <section class="hero">
-            <video class="hero__background" autoplay muted loop>
+            <video class="hero__background" autoplay muted><!-- loop here-->
                 <source src="video/pexels-zlatin-georgiev-5607740_2160p.mp4" type="video/mp4" />
             </video>
             <div class="hero__foreground">
@@ -59,7 +60,7 @@
             </div>
         </section>
 
-        <section class="section">
+        <section id="hangouts" class="section">
             <h2 class="section__title">Seal Hangouts</h2>
             <img class="section__img" src="img/pexels-diana-4445229.jpg" alt="" />
             <p class="section__text">
