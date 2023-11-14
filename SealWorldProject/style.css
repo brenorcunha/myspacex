@@ -45,7 +45,7 @@ a{
     text-transform: uppercase;
 }
 .section{
-    overflow: hidden; /*When the content overflows the stablished area, it's clipped, and no scrolling mechanism appears to see the outside content.*/
+    overflow: auto; /* When the content overflows the stablished area, it's clipped, and no scrolling mechanism appears to see the outside content.*/
     text-align: center;
 }
 .section__title {
@@ -96,15 +96,63 @@ a{
     object-position: center;
 }
 
-.gallery__img {
+.carousel{
+    overflow: hidden;
+    max-width: 800px;
+    max-height: 533px;
+    position: relative;
+    text-align: center;
+    margin: auto;
+}
+.carousel .carousel__item img{
+    width: 100%;
+    max-width: 800px;
+    max-height: 533px;
+    /* height: auto; */
+}
+.carousel .carousel__item,
+.carousel .carousel__item--hidden{
+    display: none;
+}
+.carousel .carousel__item--visible{
+    display: block;
+    animation: fadeVisibility 0.5s;
+}
+.carousel .carousel__actions{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    /* position: absolute;
+    top: 50%;
+     */
+}
+.carousel .carousel__actions button{
+    border-radius: 15px;
+    border: 0;
+    margin-bottom: 35rem;
+    font-weight: bold;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    color: #fff;
+    background-color: #242424;
+}
+#carousel__button--prev{
+    margin-left: 20px;
+}
+#carousel__button--next{
+    margin-right: 20px;
+}
+/* .gallery__img {
     border-radius: .75rem;
     height: 16rem;
     width: 16rem;
-    object-fit: cover; /* Best way for adjusting distorced pictures*/
-    /* transform: rotate(-2deg); deg = degrees */
+    object-fit: cover;Best way for adjusting distorced pictures
+    transform: rotate(-2deg); deg = degrees
 }
 
-/* The following is a transparent element used just for stylishing an image. */
+The following is a transparent element used just for stylishing an image. 
 .gallery__img-wrapper {
     display: inline-block;
     position: relative;
@@ -117,13 +165,13 @@ a{
 
 .gallery__img-wrapper:nth-child(even) > .gallery__img {
     top: 1rem;
-    /* transform: rotate(2deg); */
+    transform: rotate(2deg);
 }
 
 .gallery__img-wrapper::after {
-    content: ""; /* Insert a text after a image, like a caption */
+    content: ""; Insert a text after a image, like a caption 
     background-color: rgb(228, 26, 26);
-    border-radius: 999px; /* For rounded edges effect, in this case turns the square into a circle.*/
+    border-radius: 999px;  For rounded edges effect, in this case turns the square into a circle.
     display: block;
     height: 1.25rem;
     width: 1.25rem;
@@ -134,10 +182,20 @@ a{
 
 .gallery__img-wrapper:nth-child(even)::after {
     left: 1rem;
-}
+} */
 
 footer {
     margin-top: 4rem;
     padding: 2rem;
     text-align: center;
+}
+
+@keyframes fadeVisibility {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+        transform: opacity linear;
+    }
 }

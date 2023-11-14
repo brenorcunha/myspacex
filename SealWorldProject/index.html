@@ -74,20 +74,29 @@
 
         <section class="section">
             <h2 class="section__title">Meet the Seal Crew</h2>
-            <div class="gallery">
-                <span class="gallery__img-wrapper">
-                    <img class="gallery__img" src="img/harbor_seal.jpg" alt="" />
-                </span>
-                <span class="gallery__img-wrapper">
-                    <img class="gallery__img" src="img/grey_seal.jpg" alt="" />
-                </span>
-                <span class="gallery__img-wrapper">
-                    <img class="gallery__img" src="img/elephant_seal.jpg" alt="" />
-                </span>
-                <span class="gallery__img-wrapper">
-                    <img class="gallery__img" src="img/leopard_seal.jpg" alt="" />
-                </span>
+            <div class="carousel">
+                <div id="carousel__item" class="carousel__item carousel__item--visible">
+                    <img src="img/harbor_seal.jpg"/>
+                </div>
+                <div id="carousel__item" class="carousel__item">
+                    <img src="img/grey_seal.jpg"/>
+                </div>
+                <div id="carousel__item" class="carousel__item">
+                    <img src="img/elephant_seal.jpg"/>
+                </div>
+                <div id="carousel__item" class="carousel__item">
+                    <img src="img/leopard_seal.jpg"/>
+                </div>
+                <div class="carousel__actions">
+                    <button id="carousel__button--prev" aria-label="Previous slide">
+                        <
+                    </button>
+                    <button id="carousel__button--next" aria-label="Next slide">
+                        >
+                    </button>
+                </div>
             </div>
+                
             <p class="section__text">
                 Meet the VIPs (Very Important Pinnipeds)! We've got the harbor seal,
                 the grey seal, the elephant seal (yep, the one with the hilarious
@@ -125,6 +134,7 @@
         Made by
         <a href="https://github.com/brenorcunha" target="_blank">@brenorcunha</a>
     </footer>
+    <script type="text/javascript" src="script.js"></script>
 </body>
 
 </html>
