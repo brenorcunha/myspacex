@@ -6,8 +6,10 @@ let currentSlideIndex = 0
 nextButton.addEventListener('click', ()=>{
   if (currentSlideIndex === slides.length-1) {
       currentSlideIndex=0
+	  console.log(currentSlideIndex)
   } else {
       currentSlideIndex++
+	  console.log(currentSlideIndex)
   }
   slides.forEach(slide => {
       slide.classList.remove('carousel__item--visible')
@@ -19,14 +21,16 @@ nextButton.addEventListener('click', ()=>{
 prevButton.addEventListener('click', ()=>{
   if (currentSlideIndex <= 0) {
     currentSlideIndex = slides.length-1
+	console.log(currentSlideIndex)
   } else {
     currentSlideIndex--
+	console.log(currentSlideIndex)
   }
   slides.forEach(slide => {
     slide.classList.remove("carousel__item--visible")
     // slide.classList.add("carousel__item--hidden")
   });
-  slides[currentSlideIndex].classList.add("carousel__item--visible")
+  slides[currentSlideIndex].classList.add('carousel__item--visible')
 })
 /*
   - Implemente um carousel.

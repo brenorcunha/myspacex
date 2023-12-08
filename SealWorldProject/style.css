@@ -102,7 +102,7 @@ a{
     max-height: 533px;
     position: relative;
     text-align: center;
-    margin: auto;
+    margin: auto; /* sets the element's margins to automatic, which causes the element to be centered horizontally relative to its parent element. This property works best for elements that are blocky elements. */
 }
 .carousel .carousel__item img{
     width: 100%;

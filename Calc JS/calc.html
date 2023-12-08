@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
   <title>Calculadora JS</title>
   <link rel="stylesheet" href="style.css">
-  <script src="./index.js" defer></script>
+  <script src="./index.js" type="module" defer></script>
 </head>
 <body>
   <main data-theme="dark">
@@ -17,7 +17,7 @@
       <h1>Calc.js</h1>
       <button id="themeSwitcher">Switch Theme Dark/Light</button>
     </header>
-    <input type="text" id="input">
+    <input type="text" id="input" title="input" placeholder="">
     <div id="keys">
       <button id="clear">C</button>
       <button class="charKey" data-value=" ( ">(</button>
