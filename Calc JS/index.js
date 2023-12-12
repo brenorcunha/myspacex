@@ -1,10 +1,12 @@
 import { themeSwitcher } from "./themeSwitcher.js";
+import calculate from "./calculate.js";
 
 const input = document.getElementById("input")
-const resultInput = document.getElementById("result")
+
 const allowedKeys = ["(", ")", "/", "*", "-", "+", "9", "8", "7", "6", "5", "4", "3", "2", "1", "0", ".", "%", " "]
 
 themeSwitcher()
+calculate()
 
 document.querySelectorAll(".charKey").forEach(function (charKeyBtn) {
   charKeyBtn.addEventListener("click", function () {
@@ -33,16 +35,6 @@ input.addEventListener("keydown", function (ev) {
 })
 
 document.getElementById("equal").addEventListener("click", calculate)
-
-function calculate() {
-  resultInput.value = "ERROR"
-  resultInput.classList.add("error")
-  const result = eval(input.value)
-  resultInput.value = result
-  resultInput.classList.remove("error")
-  //Nesta funcao, ela executa as 2 primeiras linhas, e se passar do eval, exibe resultado normalmente.
-  //As 1as linhas sempre exibem o erro, mas depois é limpo, super rápido, por isso não percebemos.
-}
 
 document.getElementById("copyToClipboard").addEventListener("click", function (ev) {
   const button = ev.currentTarget
