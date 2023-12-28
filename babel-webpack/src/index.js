@@ -1,2 +1,6 @@
 import './styles/styles.css'
-console.log(`Today is ${Date}`)
+const date = new Date()
+const day = date.getDate()
+const month = date.getMonth()+1
+const fullYear = date.getFullYear()
+console.log(`Today is: ${day}/${month}/${fullYear}`)

@@ -12,7 +12,8 @@ module.exports = {
       test: /\.css$/,
       use: ['style-loader', 'css-loader']
     }, {
-      test: /\.js$/,
+      test: /\.(?:js|mjs|cjs)$/,
+      exclude: /node_modules/,
       use: ['babel-loader']
     }]
   },
