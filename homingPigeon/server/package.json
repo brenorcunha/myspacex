@@ -1,0 +1,14 @@
+{
+  "name": "homingpigeon",
+  "version": "1.0.0",
+  "description": "A microblogging platform, like Twitter.",
+  "main": "/src/app.js",
+  "scripts": {
+    "start": "node src/app.js"
+  },
+  "author": "Breno",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
