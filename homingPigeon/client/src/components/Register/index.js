@@ -1,23 +1,24 @@
 import React from "react"
+import { Container, Content, Input, Button } from "./styles"
 
 export default function Register(){
 	return(
-		<div>
-			<div>
+		<Container>
+			<Content>
 				<div>
 					<label>Username: </label>
-					<input type="text" />
+					<Input type="text" />
 				</div>
 				<div>
 					<label>Password: </label>
-					<input type="password" />
+					<Input type="password" />
 				</div>
 				
 				<div>
 					<a href="/">Cancel </a>
-					<button type="submit">Register</button>
+					<Button type="submit">Register</Button>
 				</div>
-			</div>
-		</div>
+			</Content>
+		</Container>
 	)
 }
