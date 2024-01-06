@@ -1,24 +1,42 @@
 import React, {useState} from 'react'
 import Layout from "../../components/Layout"
-import { Container, Content, Input, Button } from './styles'
+import { Container, Content, Input, Button, ErrorWarning } from './styles'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
+import Register from '../../components/Register'
 
 export default function Login(){
 	const[username, setUsername] = useState("")
 	const[password, setPassword] = useState("")
-
+	const navigate = useNavigate()
+	const[error, setError] = useState("") 
 	const handleLogin = async event=> {
 		event.preventDefault()
 		if(!username || !password) return;
 
 		try {
-			const response = await axios.post("http://localhost:3000/login", {
+			for (let index = 0; index < Register.bd.length; index++) {
+				// eslint-disable-next-line no-const-assign
+				if(username === Register.bd[index]){return navigate("/home")}
+				
+			}
+			/* const response = await axios.post("http://localhost:3000/login", {
 				username,
 				password
 			})
-			console.log({ username, password }, response)
+			localStorage.setItem("SESSION_TOKEN", response.data.token) 
+			console.log({ username, password })
+			return navigate("/home") */
 		} catch (error) {
 			console.error(error)
+
+			//Error treatment:
+			if(error.response.status===404){
+				setError("Username not found.")
+			} else if(error.response.status===400){
+				setError("Wrong password!")
+			}
+			setPassword("")
 		}
 		
 	}
@@ -26,6 +44,7 @@ export default function Login(){
 		<Layout>
 			<Container>
 				<Content>
+					{error && <ErrorWarning>(error)</ErrorWarning>}
 					<div>
 						<label>Username: </label>
 						<Input 

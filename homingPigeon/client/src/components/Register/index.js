@@ -1,55 +1,66 @@
 import React, { useState } from "react"
-import { Container, Content, Input, Button } from "./styles"
+import { Container, Content, Input, Button, ErrorWarning } from "./styles"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
 
 import Layout from "../../components/Layout"
-//CONTINUE FROM PAGE 29 PDF.
+
 export default function Register(){
 	const[username, setUsername] = useState("")
 	const[password, setPassword] = useState("")
+	const [error, setError] = useState()
 	const navigate = useNavigate()
-	
+	var bd = []
 	const handleRegister = async event =>{
 		event.preventDefault()
 		if(!username || !password) return;
 
 		try {
-			await axios.post("http://localhost:3000/login", {
+			bd.push(username, password)
+			/* const response = await axios.post("http://localhost:3000/register", {
 				username,
 				password
-			})
+			}) 
+			localStorage.setItem("SESSION_TOKEN", response.data.token)
+			*/
 			console.log({ username, password })
-			return navigate("/")
+			return navigate("/home")
 		} catch (error) {
+			setError("Something's wrong!")
 			console.error(error)
+			setPassword("")
 		}
+		
 	}
+	
 	return(
-		<Container>
-			<Content>
-				<div>
-					<label>Username: </label>
-					<Input 
-						value={username}
-						onChange={e => setUsername(e.target.value)}
-						type="text" 
-						/>
-				</div>
-				<div>
-					<label>Password: </label>
-					<Input 
-						value={password}
-						onChange={e => setPassword(e.target.value)}
-						type="text" 
-						/>
-				</div>
-				
-				<div>
-					<a href="/">Cancel </a>
-					<Button onClick={handleRegister} type="submit">Register</Button>
-				</div>
-			</Content>
-		</Container>
+		<Layout>
+			<Container>
+				<Content>
+				{error && <ErrorWarning>(error)</ErrorWarning>}
+					<div>
+						<label>Username: </label>
+						<Input 
+							value={username}
+							onChange={e => setUsername(e.target.value)}
+							type="text" 
+							/>
+					</div>
+					<div>
+						<label>Password: </label>
+						<Input 
+							value={password}
+							onChange={e => setPassword(e.target.value)}
+							type="password" 
+							/>
+					</div>
+					
+					<div>
+						<a href="/">Cancel </a>
+						<Button onClick={handleRegister} type="submit">Register</Button>
+					</div>
+				</Content>
+			</Container>
+		</Layout>
 	)
 }
