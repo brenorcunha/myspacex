@@ -16,13 +16,13 @@ export default function Register(){
 		if(!username || !password) return;
 
 		try {
-			bd.push(username, password)
-			/* const response = await axios.post("http://localhost:3000/register", {
+			// bd.push(username, password)
+			const response = await axios.post("http://localhost:3000/register", {
 				username,
 				password
 			}) 
 			localStorage.setItem("SESSION_TOKEN", response.data.token)
-			*/
+			
 			console.log({ username, password })
 			return navigate("/home")
 		} catch (error) {

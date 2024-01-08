@@ -3,7 +3,6 @@ import Layout from "../../components/Layout"
 import { Container, Content, Input, Button, ErrorWarning } from './styles'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-import Register from '../../components/Register'
 
 export default function Login(){
 	const[username, setUsername] = useState("")
@@ -15,18 +14,20 @@ export default function Login(){
 		if(!username || !password) return;
 
 		try {
+			/*
 			for (let index = 0; index < Register.bd.length; index++) {
 				// eslint-disable-next-line no-const-assign
 				if(username === Register.bd[index]){return navigate("/home")}
 				
 			}
-			/* const response = await axios.post("http://localhost:3000/login", {
+			*/
+			const response = await axios.post("http://localhost:3000/login", {
 				username,
 				password
 			})
 			localStorage.setItem("SESSION_TOKEN", response.data.token) 
 			console.log({ username, password })
-			return navigate("/home") */
+			return navigate("/home")
 		} catch (error) {
 			console.error(error)
 
