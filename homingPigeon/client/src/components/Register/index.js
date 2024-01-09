@@ -17,7 +17,7 @@ export default function Register(){
 
 		try {
 			// bd.push(username, password)
-			const response = await axios.post("http://localhost:3000/register", {
+			const response = await axios.post(`http://localhost:3000/register`, {
 				username,
 				password
 			}) 

@@ -7,7 +7,7 @@ export default function TweetForm() {
 
     const handleTweet = async event =>{
         event.preventDefault()
-        //THE PAGE TWEETS WILL BE CREATED FUTURELLY.
+        //THE PAGE TWEETS WILL BE CREATED FUTURELLY. PAGE 45 FROM NOW ON!!!
         try{
             const response = await axios.post(
                 "http://localhost:3000/tweets",
@@ -15,7 +15,6 @@ export default function TweetForm() {
                     content: text
                 },
                 {
-                    // eslint-disable-next-line no-use-before-define
                     headers: { "auth:token": localStorage.setItem("SESSION_TOKEN", response.data.token) }
                 }
             )
