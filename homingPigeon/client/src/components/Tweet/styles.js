@@ -8,23 +8,23 @@ export const Container = styled.div`
     color: #666
     
     > span{
-        color: #1DA1F2
+        color: #F13636
         font-weight: 600
     }
 `
 
 export const LikeButton = styled.button`
     background: white
-    border: 1px solid #1DA1F2
+    border: 1px solid #F13636
     padding: 0.4rem 1rem
     border-radius: 20px
-    color:1DA1F2
+    color: #F13636
     font-weight: 600
     cursor: pointer
     margin-left: 0.5rem
 
     &:hover{
-        background: #1DA1F2
+        background: #F13636
         color: white
     }
 `

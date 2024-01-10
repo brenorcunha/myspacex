@@ -9,8 +9,8 @@ export const Container = styled.div`
     > textarea {
         resize: none
         margin-bottom: 1rem
-        color: #1DA1F2
-        border: 1px solid #1DA1F2
+        color: #F13636
+        border: 1px solid #F13636
         border-radius: 10px
     }
     > div {
@@ -19,15 +19,15 @@ export const Container = styled.div`
 
         > button{
             background: white
-            border: 1px solid #1DA1F2
+            border: 1px solid #F13636
             padding: 0.4rem1 rem
             border-radius: 20px
-            color: #1DA1F2
+            color: #F13636
             font-weight: 600
             cursor: pointer
 
             &: hover{
-                background: #1DA1F2
+                background: #F13636
                 color: white
             }
         }

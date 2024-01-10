@@ -9,13 +9,14 @@ export default function TweetForm() {
         event.preventDefault()
         //THE PAGE TWEETS WILL BE CREATED FUTURELLY. PAGE 45 FROM NOW ON!!!
         try{
+            const token= localStorage.setItem("SESSION_TOKEN", response.data.token)
             const response = await axios.post(
                 "http://localhost:3000/tweets",
                 {
                     content: text
                 },
                 {
-                    headers: { "auth:token": localStorage.setItem("SESSION_TOKEN", response.data.token) }
+                    headers: { "auth:token": token }
                 }
             )
             setText("")

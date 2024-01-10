@@ -38,6 +38,7 @@ export default function Home(){
 
 	return(
 		<Layout>
+			<div>Welcome 2 homingPigeon!</div>
 			<TweetForm />
 			<TweetList tweets={tweets}/>
 		</Layout>

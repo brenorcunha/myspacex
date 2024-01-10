@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 export const Container = styled.div`
-    background: #6fc3f6;
+    background: #F13636;
     height: 100vh
     display: flex
     flex-direction: column

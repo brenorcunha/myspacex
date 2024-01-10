@@ -44,7 +44,9 @@ export default function Login(){
 	return (
 		<Layout>
 			<Container>
+				
 				<Content>
+					<p>Welcome 2 homingPigeon!</p>
 					{error && <ErrorWarning>(error)</ErrorWarning>}
 					<div>
 						<label>Username: </label>
