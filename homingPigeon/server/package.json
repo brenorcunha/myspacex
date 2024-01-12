@@ -1,10 +1,11 @@
 {
-  "name": "homingPigeon",
+  "name": "homing_pigeon",
   "version": "1.0.0",
   "description": "A microblogging platform, like Twitter.",
   "main": "/src/app.js",
   "scripts": {
-    "start": "node src/app.js"
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
   },
   "author": "Breno",
   "license": "ISC",
@@ -13,5 +14,8 @@
     "express": "^4.18.2",
     "mongodb": "^6.3.0",
     "mongoose": "^8.0.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
   }
 }
