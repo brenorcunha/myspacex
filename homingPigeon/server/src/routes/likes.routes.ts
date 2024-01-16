@@ -1,9 +1,11 @@
-import { getRepository } from 'typeorm';
+import { getConnection } from 'typeorm';
 import { Router } from 'express';
 
 import CreateTweetLikeService from '../services/CreateTweetLikeService';
 import DeleteTweetLikeService from '../services/DeleteTweetLikeService';
 import TweetLike from '../models/TweetLike';
+import user from "../models/User";
+
 
 const router = Router();
 
@@ -34,8 +36,8 @@ router.delete('/:tweetId/likes/:id', async (req, res) => {
 
 router.get('/:id/likes', async (req, res) => {
   const { id } = req.params;
-
-  const likeRepository = getRepository(TweetLike);
+  const conn = await getConnection(process.env.DB_URL)
+  const likeRepository = conn.getRepository(TweetLike);
   const likes = await likeRepository.find({
     where: {
       tweetId: id,
@@ -51,8 +53,8 @@ router.get('/:id/likes', async (req, res) => {
 
 router.get('/:tweetId/likes/:id', async (req, res) => {
   const { tweetId, id } = req.params;
-
-  const likeRepository = getRepository(TweetLike);
+  const conn = await getConnection(process.env.DB_URL)
+  const likeRepository = conn.getRepository(TweetLike);
   const like = await likeRepository.findOne({
     where: {
       id,

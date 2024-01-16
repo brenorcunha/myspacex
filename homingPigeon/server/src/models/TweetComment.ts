@@ -6,7 +6,7 @@ import {
   JoinColumn,
   CreateDateColumn,
   UpdateDateColumn,
-} from 'typeorm';
+} from "typeorm";
 
 import Tweet from './Tweet';
 import User from './User';

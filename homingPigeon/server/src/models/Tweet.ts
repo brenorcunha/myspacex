@@ -44,4 +44,4 @@ class Tweet {
   comments: TweetComment[];
 }
 
-export default Tweet;
+export default Tweet

@@ -12,13 +12,13 @@ export default (
     return res.status(error.statusCode).send({
       status: 'error',
       message: error.message,
-      stack: process.env.NODE_ENV === 'production' ? '🤓' : error.stack,
+      stack: process.env.NODE_ENV === 'production' ? 'Not allowed infos. Sorry!' : error.stack,
     });
   }
 
   res.status(500).send({
     status: 'error',
     message: 'Internal server error',
-    stack: process.env.NODE_ENV === 'production' ? '🤓' : error.stack,
+    stack: process.env.NODE_ENV === 'production' ? 'Not allowed infor. Sorry!' : error.stack,
   });
 };

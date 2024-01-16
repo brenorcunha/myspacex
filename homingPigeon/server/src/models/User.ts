@@ -5,46 +5,50 @@ import {
   OneToMany,
   CreateDateColumn,
   UpdateDateColumn,
-} from 'typeorm';
+  PrimaryColumn,
+  Generated,
+} from "typeorm"
 
 import Tweet from './Tweet';
 import TweetLike from './TweetLike';
 import TweetComment from './TweetComment';
 
-@Entity('users')
+//declare type ClassDecorator = <TFunction extends Function>(target: TFunction) => TFunction | void;
+
+@Entity("user")
 class User {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
+  @PrimaryGeneratedColumn("uuid")
+  id: string
 
   @Column()
-  name: string;
+  name: string
 
   @Column()
-  email: string;
+  email: string
 
   @Column()
-  username: string;
+  username: string
 
   @Column()
-  password: string;
+  password: string
 
   @Column()
-  avatar: string;
+  avatar: string
 
   @CreateDateColumn({ name: 'created_at' })
-  createdAt: Date;
+  createdAt: Date
 
   @UpdateDateColumn({ name: 'updated_at' })
-  updatedAt: Date;
+  updatedAt: Date
 
   @OneToMany(type => Tweet, tweet => tweet.owner)
-  tweets: Tweet[];
+  tweets: Tweet[]
 
   @OneToMany(type => TweetLike, like => like.owner)
-  likes: TweetLike[];
+  likes: TweetLike[]
 
   @OneToMany(type => TweetComment, comment => comment.owner)
-  comments: TweetComment[];
+  comments: TweetComment[]
 }
 
-export default User;
+export default User
