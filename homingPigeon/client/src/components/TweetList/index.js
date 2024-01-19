@@ -11,9 +11,12 @@ export default function TweetList(props) {
         <ul>
             {props.tweets.reverse().map(tweet  =>(
                 <Tweet key={tweet._id}
+				TweetId={tweet._id}
                 owner = {tweet.owner}
+				username = {tweet.username}
                 content = {tweet.content}
-                likes = {tweet.likes}
+                likes = {tweet.likes.length}
+				onLike = {props.onLike}
                 />
             ))}
         </ul>

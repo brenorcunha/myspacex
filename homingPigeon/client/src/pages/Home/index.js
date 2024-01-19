@@ -35,12 +35,33 @@ export default function Home(){
 		}
 		fetchTweets()
 	},[])
+	
+	const handleLike =(ownerID, tweetID) =>{
+		console.log(ownerID, tweetID)
+		
+		const newTweets =tweets.map(tweet=>{
+			if(tweet.id === tweetID){
+				const tweetLiked = tweet.likes.found(owner => owner ===owner.ID)
+				
+				if (tweetLiked){
+					return {
+						...tweet,
+						likes: tweet.likes.filter(owner=>owner!==ownerID)
+					}
+				}
+				return {...tweet, likes:[...tweet.likes, ownerID]}
+				
+			}
+			return tweet
+		})
+		setTweets(newTweets.reverse())
+	}
 
 	return(
 		<Layout>
 			<div>Welcome 2 homingPigeon!</div>
-			<TweetForm />
-			<TweetList tweets={tweets}/>
+			<TweetForm onCreateTweet={onCreateTweet}/>
+			<TweetList tweets={tweets} onLike={handleLike}/>
 		</Layout>
 	)
 }
