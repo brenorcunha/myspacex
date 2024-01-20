@@ -1,27 +1,33 @@
-import bcrypt from 'bcryptjs'
-const hashedPassword = ''
+const express = require("express");
+const app = express()
+validateToken = require("../auth.js")
+register();
+module.exports = register;
 
-app.post("/register", async(req, res, next) =>{
-	try{
-		const {username, password} =req.body
-		const userExists =  await User.findOne({username})
-		if(userExists) return res.status(400).send({ERROR: "Username not available!"})
+function register() {
+	app.post("/register", async (req, res, next) => {
+		try {
+			const { username, password } = req.body;
+			const userExists = await User.findOne({ username });
+			if (userExists) return res.status(400).send({ ERROR: "Username not available!" });
 
-		const salt = await bcrypt.genSalt(10, function(err, Salt){
-			bcrypt.hash(password, Salt, function(error, hash){
-				if(error) return console.log("Encryption failed!")
-				
-				hashedPassword = hash
-				console.log(hash)
-			})
-		})
+			const salt = await bcrypt.genSalt(10, function (err, Salt) {
+				bcrypt.hash(password, Salt, function (error, hash) {
+					if (error) return console.log("Encryption failed!");
 
-		const user = await User.create({username, password: hash})
-		res.status(201).send({id: user.id, username: user.username})
-	} catch (error){
-		res.status(400)
-		next(error)
-	}
-})
+					const hashedPassword = hash;
+					console.log(hash);
+				});
+			});
 
-export default register
+			const user = await User.create({ username, password: hash });
+			res.status(201).send({ id: user.id, username: user.username });
+		} catch (error) {
+			res.status(400);
+			next(error);
+		}
+	});
+
+	app.get("/private", validateToken, async(req,res, next)=>{}) //Put in every private function.
+}
+

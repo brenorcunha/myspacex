@@ -2,18 +2,20 @@ const express = require("express");
 const mongoose = require("mongoose");
 
 const router = require("express");
+const login = require("./routes/login");
+const register = require("./routes/register");
 
-require("dotenv").config();
+require("dotenv").config()
 const app = express()
 
 try {
-	mongoose.connect(process.env.DB_URL);
-	mongoose.connection.on('connected', () => console.log('Kinnectd'));
-	mongoose.connection.on('open', () => console.log('Open'));
-	mongoose.connection.on('disconnected', () => console.log('disKinnectd'));
-	mongoose.connection.on('reconnected', () => console.log('Reconnected'));
-	mongoose.connection.on('disconnecting', () => console.log('Disconnecting...'));
-	mongoose.connection.on('close', () => console.log('close'));
+	mongoose.connect('mongodb://localhost:27017/hp')
+	mongoose.connection.on('connected', () => console.log('Kinnectd'))
+	mongoose.connection.on('open', () => console.log('Open'))
+	mongoose.connection.on('disconnected', () => console.log('Disconnected'))
+	mongoose.connection.on('reconnected', () => console.log('Reconnected'))
+	mongoose.connection.on('disconnecting', () => console.log('Disconnecting...'))
+	mongoose.connection.on('close', () => console.log('close'))
 } catch (error) {
 	console.error(error)
 }
@@ -23,10 +25,12 @@ app.use(express.json())
  
 app.get("/", (req, res) => {
 	//REQ requisição nossa - RES a resposta "/" significa a rota principal
-  res.send("Hello GeekHunter! 🤓")
+  	//res.send("Hello GeekHunter! 🤓")
+ 	res.status(200)
 })
 app.get("/register", (req, res) =>{
-	res.send("Cá está", router)
+	//res.send(router)
+	res.status(200).send("OK")
 })
 const PORT = 3333
 
