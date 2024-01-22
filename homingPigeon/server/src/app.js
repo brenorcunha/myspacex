@@ -1,6 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
-
+const axios = require("axios");
 const router = require("express");
 const login = require("./routes/login");
 const register = require("./routes/register");
@@ -32,6 +32,7 @@ app.get("/register", (req, res) =>{
 	//res.send(router)
 	res.status(200).send("OK")
 })
+
 const PORT = 3333
 
 app.listen(PORT, ()=> {

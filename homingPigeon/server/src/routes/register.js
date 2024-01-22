@@ -1,4 +1,5 @@
 const express = require("express");
+const axios = require("axios");
 const app = express()
 validateToken = require("../auth.js")
 register();
@@ -8,6 +9,10 @@ function register() {
 	app.post("/register", async (req, res, next) => {
 		try {
 			const { username, password } = req.body;
+			axios.post(`${process.env.REACT_SERVER_APP_URL}/register`,{
+				username,
+				password
+			})
 			const userExists = await User.findOne({ username });
 			if (userExists) return res.status(400).send({ ERROR: "Username not available!" });
 
