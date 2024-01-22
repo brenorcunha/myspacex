@@ -8,3 +8,5 @@ router.use('/register', register)
 router.use('/login', login)
 
 export default router
+
+//IF any error withnthis file, the infos are in 'routes.js'

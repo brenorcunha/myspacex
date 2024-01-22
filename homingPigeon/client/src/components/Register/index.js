@@ -10,14 +10,14 @@ export default function Register(){
 	const[password, setPassword] = useState("")
 	const [error, setError] = useState()
 	const navigate = useNavigate()
-	var bd = []
+	
 	const handleRegister = async event =>{
 		event.preventDefault()
 		if(!username || !password) return;
 
 		try {
 			// bd.push(username, password)
-			const response = await axios.post(`http://localhost:3000/register`, {
+			const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/register`, {
 				username,
 				password
 			}) 

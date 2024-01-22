@@ -9,7 +9,7 @@ export default function Tweet(props) {
             try {
                 const token = localStorage.getItem("SESSION_TOKEN")
                 const response=await axios.get(
-                    `http://localhost:3000/users/${props.owner}`,
+                    `${process.env.REACT_APP_SERVER_URL}/users/${props.owner}`,
                     {
                         headers: {"auth-token": token}
                     }

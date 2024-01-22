@@ -11,7 +11,7 @@ export default function TweetForm() {
         try{
             const token= localStorage.setItem("SESSION_TOKEN", response.data.token)
             const response = await axios.post(
-                "http://localhost:3000/tweets",
+                `${process.env.REACT_APP_SERVER_URL}/tweets`,
                 {
                     content: text
                 },
