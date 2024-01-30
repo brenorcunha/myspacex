@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+/*1da1f2 Twitt standard*/
 export const Container = styled.div`
   background: white;
   padding: 1.5rem;
@@ -35,9 +35,14 @@ export const Content = styled.form`
 
   a {
     text-decoration: none;
-    color: #1da1f2;
+    color: #F13636;
     cursor: pointer;
   }
+  /* This is link style
+  a:hover {
+    background: #F13636;
+    color: white;
+  } */
 `;
 
 export const Input = styled.input`

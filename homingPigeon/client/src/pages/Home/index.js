@@ -10,17 +10,18 @@ export default function Home(){
 	useEffect(()=>{
 		const fetchTweets = async () => {
 			try {
+				const token = localStorage.getItem("SESSION_TOKEN")
 				const tweetResponse = await axios.get(`${process.env.REACT_APP_SERVER_URL}/tweets`, 
 					{
 						// eslint-disable-next-line no-use-before-define
-						headers:{"authToken": localStorage.setItem("SESSION_TOKEN", tweetResponse.data.token) }
+						headers:{"authToken": token }
 					}
 				)
 				const tweetUsers = await Promise.all(
 					tweetResponse.data.map(async tweet => {
 						const user = await axios.get(`${process.env.REACT_APP_SERVER_URL}/users/${tweet.owner}`,
 						{
-							headers: {"auth-token": localStorage.setItem("SESSION_TOKEN", tweetResponse.data.token)}
+							headers: {"auth-token": token}
 						}
 					)
 					
@@ -60,6 +61,7 @@ export default function Home(){
 	return(
 		<Layout>
 			<div>Welcome 2 homingPigeon!</div>
+			<TweetForm />
 			<TweetList tweets={tweets} onLike={handleLike}/>
 		</Layout>
 	)

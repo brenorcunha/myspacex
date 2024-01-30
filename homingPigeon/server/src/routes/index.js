@@ -1,12 +1,16 @@
-import { Router } from "express"
+const {Router} = require("express")
+const bcrypt = require("bcryptjs")
+const jwt = require("jsonwebtoken")
+const validateToken = require("../auth.js")
+const User = require("../model/User.js")
+const Tweet = require("../model/Tweet.js")
 
-import register from './register.js'
-import login from './login.js'
-const router = Router()
+const router = new Router()
 
-router.use('/register', register)
-router.use('/login', login)
+router.use("/register", validateToken, async(req, res, next) =>{})
+router.use("/login", validateToken, async(req, res, next) =>{})
+router.use("/users", validateToken, async(req, res, next) =>{})
+router.use("/tweets", validateToken, async(req, res, next) =>{})
+router.use("/sessions", validateToken, async(req, res, next) =>{})
 
-export default router
-
-//IF any error withnthis file, the infos are in 'routes.js'
+module.exports = router

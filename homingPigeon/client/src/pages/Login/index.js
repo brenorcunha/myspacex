@@ -14,13 +14,6 @@ export default function Login(){
 		if(!username || !password) return;
 
 		try {
-			/*
-			for (let index = 0; index < Register.bd.length; index++) {
-				// eslint-disable-next-line no-const-assign
-				if(username === Register.bd[index]){return navigate("/home")}
-				
-			}
-			*/
 			const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/login`, {
 				username,
 				password
@@ -29,7 +22,7 @@ export default function Login(){
 			console.log({ username, password })
 			return navigate("/home")
 		} catch (error) {
-			console.error(error)
+			console.log.error(error)
 
 			//Error treatment:
 			if(error.response.status===404){

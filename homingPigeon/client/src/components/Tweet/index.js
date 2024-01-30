@@ -1,9 +1,10 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react"
 import {Container, LikeButton} from "./styles"
 import axios from "axios"
 
 export default function Tweet(props) {
-    const[username, setUsername] = useState()
+    const[username, setUsername] = useState("")
     useEffect(() =>{
         const fetchUsername = async() =>{
             try {
@@ -14,7 +15,7 @@ export default function Tweet(props) {
                         headers: {"auth-token": token}
                     }
                 )
-                // eslint-disable-next-line react-hooks/exhaustive-deps
+                // eslint-disable-next-line react-hooks/exhaustive-deps, no-const-assign
                 setUsername = (response.data.username)
             } catch (error) {
                 console.error(error)

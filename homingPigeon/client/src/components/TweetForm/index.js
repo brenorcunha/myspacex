@@ -1,22 +1,22 @@
 import React, {useState} from "react"
-import {Container} from "./styles"
+import {Container, Button} from "./styles"
 import axios from "axios"
 
 export default function TweetForm() {
-    const[text, setText] = useState()
+    const[text, setText] = useState("")
 
     const handleTweet = async event =>{
         event.preventDefault()
-        //THE PAGE TWEETS WILL BE CREATED FUTURELLY. PAGE 45 FROM NOW ON!!!
+        
         try{
-            const token= localStorage.setItem("SESSION_TOKEN", response.data.token)
+            const token= localStorage.getItem("SESSION_TOKEN")
             const response = await axios.post(
                 `${process.env.REACT_APP_SERVER_URL}/tweets`,
                 {
                     content: text
                 },
                 {
-                    headers: { "auth:token": token }
+                    headers: { "auth-token": token }
                 }
             )
             setText("")
@@ -38,7 +38,7 @@ export default function TweetForm() {
             />
             
             <div>
-                <button onClick={handleTweet}>Share</button>
+                <Button onClick={handleTweet}>Share</Button>
             </div>
         </Container>
     )

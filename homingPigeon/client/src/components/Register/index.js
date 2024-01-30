@@ -1,14 +1,14 @@
-import React, { useState } from "react"
+import React, { useState } from 'react'
 import { Container, Content, Input, Button, ErrorWarning } from "./styles"
-import axios from "axios"
-import { useNavigate } from "react-router-dom"
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
-import Layout from "../../components/Layout"
+import Layout from '../../components/Layout'
 
 export default function Register(){
 	const[username, setUsername] = useState("")
 	const[password, setPassword] = useState("")
-	const [error, setError] = useState()
+	const [error, setError] = useState("")
 	const navigate = useNavigate()
 	
 	const handleRegister = async event =>{
@@ -27,7 +27,7 @@ export default function Register(){
 			return navigate("/home")
 		} catch (error) {
 			setError("Something's wrong!")
-			console.error(error)
+			console.log.error(error)
 			setPassword("")
 		}
 		

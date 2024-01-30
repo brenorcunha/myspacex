@@ -5,9 +5,8 @@ export default function AuthRoute(props) {
     const navigate = useNavigate()
 
     if(!localStorage.getItem("SESSION_TOKEN")){
-        navigate("/")
+        navigate("/home")
         return null;
     }
     return <Route {...props} />
-
 }

@@ -33,3 +33,17 @@ export const Container = styled.div`
         }
     }
 `
+export const Button = styled.button`
+  background: white;
+  border: 1px solid #F13636;
+  padding: 0.4rem 1.3rem;
+  border-radius: 20px;
+  color: #F13636;
+  font-weight: 600;
+  cursor: pointer;
+
+  &:hover {
+    background: #F13636;
+    color: white;
+  }
+`;
