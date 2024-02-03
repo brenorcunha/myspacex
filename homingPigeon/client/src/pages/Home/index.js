@@ -11,6 +11,7 @@ export default function Home(){
 		const fetchTweets = async () => {
 			try {
 				const token = localStorage.getItem("SESSION_TOKEN")
+				
 				const tweetResponse = await axios.get(`${process.env.REACT_APP_SERVER_URL}/tweets`, 
 					{
 						// eslint-disable-next-line no-use-before-define

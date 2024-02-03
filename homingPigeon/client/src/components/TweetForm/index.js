@@ -10,6 +10,7 @@ export default function TweetForm() {
         
         try{
             const token= localStorage.getItem("SESSION_TOKEN")
+
             const response = await axios.post(
                 `${process.env.REACT_APP_SERVER_URL}/tweets`,
                 {
@@ -28,7 +29,6 @@ export default function TweetForm() {
    }
     return(
         <Container>
-            
             <textarea 
             required
             value = {text}

@@ -1,25 +1,25 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const axios = require("axios");
 const validateToken = require("./auth")
 const morgan = require("morgan")
 const cors = require("cors")
+const User = require("./model/User.js")
 
 require("dotenv").config()
 const app = express()
-const router = require("./routes/index")
+const router = require("./routes")
 app.use(morgan("common"))
-app.use(express.json)
+app.use(express.json) //Tell express we want to use the requests as JSON data.
 app.use(cors({ origin: process.env.CORS_ORIGIN}))
 
 try {
 	mongoose.connect('mongodb://127.0.0.1:27017/hp').catch(error => handleError(error));
-	mongoose.connection.on('open', () => console.log('open'));
-	mongoose.connection.on('connected', () => console.log('Kinnectd 2 da DB'))
+	mongoose.connection.on('open', () => console.log('OpenD'))
+	mongoose.connection.on('connected', () => console.log('KinnectD 2 da DB'))
 	mongoose.connection.on('disconnected', () => console.log('Disconnected'))
 	mongoose.connection.on('reconnected', () => console.log('Reconnected'))
 	mongoose.connection.on('disconnecting', () => console.log('Disconnecting...'))
-	mongoose.connection.on('close', () => console.log('close'))
+	mongoose.connection.on('close', () => console.log('Closed'))
 } catch (error) {
 	console.error(error)
 }
@@ -27,13 +27,17 @@ try {
 app.use(router)
 //Body parsing middleware: Define que queremos acessar as reqs como JSON.
 app.use(express.json())
- 
-app.get("/", (req, res) => {
-	//REQ requisição nossa - RES a resposta "/" significa a rota principal
-  	res.send("Hello GeekHunter! 🤓")
- 	res.status(200)
-})
 
+/* const newUser = new User({
+	username: "brenorc",
+	password: "1234"
+}) 
+
+newUser.save()
+	.then(() =>{return console.error("User succesfully created")
+})
+.catch((error) =>{return console.error("Couldn't create the user!")})
+*/
 const PORT = 3333
 
 app.listen(PORT, ()=> {

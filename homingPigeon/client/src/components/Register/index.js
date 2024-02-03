@@ -12,19 +12,19 @@ export default function Register(){
 	const navigate = useNavigate()
 	
 	const handleRegister = async event =>{
-		event.preventDefault()
+		//event.preventDefault()
 		if(!username || !password) return;
 
 		try {
 			// bd.push(username, password)
-			const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/register`, {
+			const response = await axios.post(`http://localhost:3333/register`, {
 				username,
 				password
 			}) 
 			localStorage.setItem("SESSION_TOKEN", response.data.token)
 			
 			console.log({ username, password })
-			return navigate("/home")
+			return navigate("/")	
 		} catch (error) {
 			setError("Something's wrong!")
 			console.log.error(error)

@@ -1,8 +1,9 @@
-import React, {useState} from 'react'
+import React, {useState} from "react"
 import Layout from "../../components/Layout"
 import { Container, Content, Input, Button, ErrorWarning } from './styles'
-import axios from 'axios'
+import axios from "axios"
 import { useNavigate } from 'react-router-dom'
+import jwt from "jsonwebtoken"
 
 export default function Login(){
 	const[username, setUsername] = useState("")
@@ -10,7 +11,7 @@ export default function Login(){
 	const navigate = useNavigate()
 	const[error, setError] = useState("") 
 	const handleLogin = async event=> {
-		event.preventDefault()
+		//event.preventDefault()
 		if(!username || !password) return;
 
 		try {
@@ -18,8 +19,8 @@ export default function Login(){
 				username,
 				password
 			})
+			console.log(jwt.decode(response.data.token))
 			localStorage.setItem("SESSION_TOKEN", response.data.token) 
-			console.log({ username, password })
 			return navigate("/home")
 		} catch (error) {
 			console.log.error(error)
