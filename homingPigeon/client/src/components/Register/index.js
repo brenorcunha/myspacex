@@ -11,26 +11,26 @@ export default function Register(){
 	const [error, setError] = useState("")
 	const navigate = useNavigate()
 	
-	const handleRegister = async event =>{
-		//event.preventDefault()
-		if(!username || !password) return;
+	async function handleRegister(event) {
+		event.preventDefault()
+		if (!username || !password) return
 
 		try {
 			// bd.push(username, password)
-			const response = await axios.post(`http://localhost:3333/register`, {
+			const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/register`, {
 				username,
 				password
-			}) 
+			})
 			localStorage.setItem("SESSION_TOKEN", response.data.token)
-			
+
 			console.log({ username, password })
-			return navigate("/")	
+			return navigate("/home")
 		} catch (error) {
 			setError("Something's wrong!")
-			console.log.error(error)
+			console.error(error)
 			setPassword("")
 		}
-		
+
 	}
 	
 	return(
@@ -44,20 +44,20 @@ export default function Register(){
 							value={username}
 							onChange={e => setUsername(e.target.value)}
 							type="text" 
-							/>
+						/>
 					</div>
 					<div>
 						<label>Password: </label>
-						<Input 
+						<Input
 							value={password}
 							onChange={e => setPassword(e.target.value)}
 							type="password" 
-							/>
+						/>
 					</div>
 					
 					<div>
 						<a href="/">Cancel </a>
-						<Button onClick={handleRegister} type="submit">Register</Button>
+						<Button type="submit" onClick={handleRegister}>Register</Button>
 					</div>
 				</Content>
 			</Container>

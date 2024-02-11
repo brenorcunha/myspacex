@@ -5,10 +5,11 @@ import axios from "axios"
 
 export default function Tweet(props) {
     const[username, setUsername] = useState("")
-    useEffect(() =>{
-        const fetchUsername = async() =>{
+    useEffect(() => {
+        const fetchUsername = async () =>{
             try {
                 const token = localStorage.getItem("SESSION_TOKEN")
+
                 const response=await axios.get(
                     `${process.env.REACT_APP_SERVER_URL}/users/${props.owner}`,
                     {
@@ -25,6 +26,7 @@ export default function Tweet(props) {
     })
     return(
         <Container>
+            <span>{username}</span>
             <span>{props.owner}</span>
             <p>{props.content}</p>
             <div>

@@ -1,12 +1,12 @@
 const {Router} = require("express")
 const bcrypt = require("bcryptjs")
-const jwt = require("jsonwebtoken")
-const validateToken = require("../auth.js")
-const User = require("../model/User.js")
-const Tweet = require("../model/Tweet.js")
+const jwtDecode = require("jwt-decode")
+const validateToken = require("../auth")
+const User = require("../model/User")
+const Tweet = require("../model/Tweet")
 
 const router = new Router()
-router.get("/", (req, res) => {
+router.get("/", validateToken, async (res) => {
 	//REQ requisição nossa - RES a resposta
   	res.send("Hello GeekHunter! 🤓")
  	res.status(200)
@@ -19,9 +19,11 @@ router.post("/register", async (req,res,next) =>{
 		
 		if(userExists) return res.status(400).send({error: "Username already in use."})
 		
+		const salt = await bcrypt.genSalt(10)
+		const hash = await bcrypt.hash(password, salt)
 		const user = await User.Create({
 			username,
-			password
+			password: hash
 		})
 		res.status(201).send({
 			id: user.id,
@@ -37,12 +39,15 @@ router.post("/login", validateToken, async(req,res,next) =>{
 	try {
 		const {username, password} = req.body
 
-		const User = await User.findOne({username})
+		const user = await User.findOne({username})
 
 		if(!user) return res.status(400).send({error: "Username not found."})
 
 		const validPassword = await bcrypt.compare(password, user.password)
 		if(!validPassword) return res.status(400).send({error: "Invalid password."})
+
+		const token = jwtDecode.sign({_id: user.id}, process.env.JWT_SECRET)
+		res.header('auth-token', token).send(token)
 
 	} catch (error) {
 		res.status(400)
@@ -139,7 +144,7 @@ router.put("/tweets/:id", validateToken, async(req,res,next) =>{
 		next(error)
 	}
 })
-//Seacrhing 4 all tweets
+//Searching 4 all tweets
 router.get("/tweets", validateToken, async(req,res,next) =>{
 	try {
 		const tweets = await Tweet.find({})

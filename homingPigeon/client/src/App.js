@@ -1,8 +1,9 @@
 import React from "react"
-import Routes1 from "../src/Routes"
+//import Login from "./pages/Login"
+import Routes from "../src/Routes"
 
 function App() {
-  return <Routes1 />
+  return <Routes />
   
     /* TEXTO ANTERIOR
 	(

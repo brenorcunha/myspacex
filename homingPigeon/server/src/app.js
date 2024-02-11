@@ -1,13 +1,12 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const validateToken = require("./auth")
+const express = require("express")
+const mongoose = require("mongoose")
 const morgan = require("morgan")
 const cors = require("cors")
-const User = require("./model/User.js")
-
 require("dotenv").config()
+
 const app = express()
 const router = require("./routes")
+
 app.use(morgan("common"))
 app.use(express.json) //Tell express we want to use the requests as JSON data.
 app.use(cors({ origin: process.env.CORS_ORIGIN}))
@@ -59,4 +58,4 @@ const errorHandling = (error,req,res,next)=>{
 		trace: process.env.NODE_ENV==="production" ? "Not allowed infos, sorry...":error.trace
 	})
 }
-module.exports = {errorHandling, notFound}
+module.exports = {app, errorHandling, notFound}

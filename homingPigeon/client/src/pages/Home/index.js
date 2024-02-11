@@ -20,7 +20,8 @@ export default function Home(){
 				)
 				const tweetUsers = await Promise.all(
 					tweetResponse.data.map(async tweet => {
-						const user = await axios.get(`${process.env.REACT_APP_SERVER_URL}/users/${tweet.owner}`,
+						const user = await axios.get(
+							`${process.env.REACT_APP_SERVER_URL}/users/${tweet.owner}`,
 						{
 							headers: {"auth-token": token}
 						}
@@ -62,7 +63,7 @@ export default function Home(){
 	return(
 		<Layout>
 			<div>Welcome 2 homingPigeon!</div>
-			<TweetForm />
+			<TweetForm></TweetForm>
 			<TweetList tweets={tweets} onLike={handleLike}/>
 		</Layout>
 	)

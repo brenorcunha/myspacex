@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 import {Container} from "../TweetForm/styles"
 import Tweet from "../Tweet"
 
@@ -9,12 +9,13 @@ export default function TweetList(props) {
     return(
         <Container>
             <ul>
-                {props.tweets.reverse().map(tweet  =>(
+                {props.tweets.map(tweet => (
                     <Tweet
                     key={tweet._id}
 				    TweetId={tweet._id}
                     owner = {tweet.owner}
-				    username = {tweet.username}
+				    username =
+                    {tweet.username}
                     content = {tweet.content}
                     likes = {tweet.likes.length}
 				    onLike = {props.onLike}
