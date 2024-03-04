@@ -24,6 +24,10 @@ const config = {
                 loader: 'babel-loader',
             },
             {
+                test: /\.html$/i,
+                loader: "html-loader",
+            },
+            {
                 test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
                 type: 'asset',
             },
@@ -48,6 +52,7 @@ const config = {
               'https': require.resolve('https-browserify/'),
               'os': require.resolve('os-browserify/'),
             },
+            extensions: ['.html']
           }
     },
 };

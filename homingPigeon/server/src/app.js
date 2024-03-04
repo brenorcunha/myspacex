@@ -3,10 +3,11 @@ const mongoose = require("mongoose")
 const morgan = require("morgan")
 const cors = require("cors")
 require("dotenv").config()
-
+const path = require("path")
+const {fileURLToPath} = require("url")
 const app = express()
 const router = require("./routes")
-
+app.use(express.static(path.join(__dirname)))
 app.use(morgan("common"))
 app.use(express.json) //Tell express we want to use the requests as JSON data.
 app.use(cors({ origin: process.env.CORS_ORIGIN}))
@@ -26,7 +27,13 @@ try {
 app.use(router)
 //Body parsing middleware: Define que queremos acessar as reqs como JSON.
 app.use(express.json())
+app.use(express.static(__dirname));
 
+
+app.get('/', async (req, res) => {
+	//REQ requisição nossa - RES a resposta
+  	res.sendFile(path.join(__dirname,'index.html'))
+})
 /* const newUser = new User({
 	username: "brenorc",
 	password: "1234"

@@ -25,8 +25,7 @@ export default function Login(){
 			localStorage.setItem("SESSION_TOKEN", response.data.token)
 			return navigate("/home")
 		} catch (error) {
-			console.log.error(error)
-
+			console.error(error)
 			//Error treatment:
 			if (error.response.status === 404) {
 				setError("Username not found.")

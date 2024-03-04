@@ -6,11 +6,7 @@ const Tweet = require('../model/Tweet')
 const express = require('express')
 
 const router = express.Router()
-router.get('/', validateToken, async (res) => {
-	//REQ requisição nossa - RES a resposta
-  	res.send('Hello GeekHunter! 🤓')
- 	res.status(200)
-})
+
 router.get('/home', validateToken,async(req,res,next) =>{
 	try {
 		const {username, password} = req.body
@@ -24,7 +20,7 @@ router.get('/home', validateToken,async(req,res,next) =>{
 
 	next()
 })
-router.post('/register', async (req,res,next) =>{
+router.post('/register', validateToken, async (req,res,next) =>{
 	try{
 		const {username, password} = req.body
 		const userExists = await User.findOne({username})

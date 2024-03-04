@@ -6,7 +6,7 @@ class Character{
 		this.defensePoints = defensePoints
 	}
 	doAttack(targetCharacter){
-		targetCharacter.lifePoints = targetCharacter.lifePoints-(targetCharacter.defense-this.attackPoints)
+		targetCharacter.lifePoints -= (targetCharacter.defense-this.attackPoints)
 		return console.log('Character '+ targetCharacter.name + ' has now '+ targetCharacter.lifePoints+ ' lifePoints')
 	}
 }
@@ -15,24 +15,22 @@ class Thief extends Character{
 		super(name, lifePoints, attackPoints, defensePoints)
 	}
 	doAttack(targetCharacter){
-		if(targetCharacter=="Warrior" && targetCharacter.position=="attack"){
-			targetCharacter.switchPosition()
-
-			var step1 = (targetCharacter.defensePoints+targetCharacter.shieldPoints)-this.attackPoints
+		if(targetCharacter.name=="Warrior" && targetCharacter.position=="attack"){
+			var step1 = targetCharacter.defensePoints-this.attackPoints
 			if(step1<0){
 				step1 = step1*(-1)}
 
-			targetCharacter.lifePoints = targetCharacter.lifePoints-(step1*2)
+			targetCharacter.lifePoints -= (step1*2)
 			if(targetCharacter.lifePoints<0){console.log( targetCharacter.name, " morreu!")} else{
 				console.log('Character '+ targetCharacter.name + ' has now '+ targetCharacter.lifePoints+ ' lifePoints')
 			}
 
-		} else if(targetCharacter=="Warrior"){
+		} else if(targetCharacter.name=="Warrior"){
 			var step1 = (targetCharacter.defensePoints+targetCharacter.shieldPoints)-this.attackPoints
 			if(step1<0){
 				step1 = step1*(-1)}
 
-			targetCharacter.lifePoints = targetCharacter.lifePoints-(step1*2)
+			targetCharacter.lifePoints -= (step1*2)
 			if(targetCharacter.lifePoints<0){console.log( targetCharacter.name, " morreu!")} else{
 				console.log('Character '+ targetCharacter.name + ' has now '+ targetCharacter.lifePoints+ ' lifePoints')
 			}
@@ -41,7 +39,7 @@ class Thief extends Character{
 			if(step1<0){
 				step1 = step1*(-1)}
 
-			targetCharacter.lifePoints = targetCharacter.lifePoints-(step1*2)
+			targetCharacter.lifePoints -= (step1*2)
 			if(targetCharacter.lifePoints<0){console.log( targetCharacter.name, " morreu!")} else{
 				console.log('Character '+ targetCharacter.name + ' has now '+ targetCharacter.lifePoints+ ' lifePoints')
 			}
@@ -53,11 +51,10 @@ class Mage extends Character{
         super(name, lifePoints, attackPoints, defensePoints, magicPoints)
 		this.magicPoints = magicPoints
 	}
+	
 	doAttack(targetCharacter){
-		if(targetCharacter=="Warrior" && targetCharacter.position=="attack"){
-			targetCharacter.switchPosition()
-
-			var step1 = (targetCharacter.defensePoints+targetCharacter.shieldPoints)-(this.attackPoints+ this.magicPoints)
+		if(targetCharacter.name=="Warrior" && targetCharacter.position=="attack"){
+			var step1 = targetCharacter.defensePoints-(this.attackPoints+ this.magicPoints)
 			if(step1<0){
 				step1 = step1*(-1)}
 
@@ -66,13 +63,14 @@ class Mage extends Character{
 				console.log('Character '+ targetCharacter.name + ' has now '+ targetCharacter.lifePoints+ ' lifePoints')
 			}
 			
-		} else if(targetCharacter=="Warrior"){
+		} else if(targetCharacter.name=="Warrior"){
 			var step1 = (targetCharacter.defensePoints+targetCharacter.shieldPoints)-(this.attackPoints+this.magicPoints)
 			if(step1<0){
 				step1 = step1*(-1)}
 
 			targetCharacter.lifePoints = targetCharacter.lifePoints-(step1)
-			if(targetCharacter.lifePoints<0){console.log( targetCharacter.name, " morreu!")} else{
+			if(targetCharacter.lifePoints<0){console.log( targetCharacter.name, " morreu!")} else
+			{
 				console.log('Character '+ targetCharacter.name + ' has now '+ targetCharacter.lifePoints+ ' lifePoints')
 			}
 		} else {
@@ -98,25 +96,30 @@ class Warrior extends Character{
 		this.position = position
 	}
 	doAttack(targetCharacter){
-		if(this.position==="defense"){this.switchPosition()}
-	    var step1 = targetCharacter.defensePoints-this.attackPoints
-		if(step1<0){
-	        step1 = step1*(-1)}
-
-        targetCharacter.lifePoints = targetCharacter.lifePoints-(step1)
-		if(targetCharacter.lifePoints<0){console.log( targetCharacter.name, " morreu!")} else{
+		if(this.position=="defense"){
+		    console.log("Sorry, but this attack cannnot happen!")
+		} else{
+			var step1 = targetCharacter.defensePoints-this.attackPoints
+			if(step1<0){step1 = step1*(-1)}
 			console.log('Character '+ targetCharacter.name + ' has now '+ targetCharacter.lifePoints+ ' lifePoints')
+
+			targetCharacter.lifePoints = targetCharacter.lifePoints-(step1)
+			if(targetCharacter.lifePoints<0) {console.log(targetCharacter.name, " morreu!")} else {console.log('Character '+ targetCharacter.name + ' has now '+ targetCharacter.lifePoints+ ' lifePoints')}
 		}
+	
+	function switchPosition(){
+		if(this.position == "defense") this.position="attack"
+		return this.position
 	}
-	switchPosition(){
-		return this.position == "defense"? "attack":"defense"
 	}
 }
-const T1 = new Thief("Lula", 1000, 500, 500)
-const M1 = new Mage("The White Mage", 1000, 800,300, 500)
-const W1 = new Warrior("Breno", 2000, 400, 400, 500,"defense")
+const T1 = new Thief("Thief", 1000, 500, 500)
+const M1 = new Mage("The Mage", 1000, 800,300, 500)
+const W1 = new Warrior("Warrior", 2000, 400, 400, 500,"defense")
+console.log(W1.position)
 T1.doAttack(W1)
 T1.doAttack(W1)
 M1.doAttack(T1)
 M1.increaseLife(W1)
 W1.doAttack(M1)
+M1.doAttack(W1)
