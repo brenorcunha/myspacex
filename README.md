@@ -1,4 +1,6 @@
 # Front codes
-###HTML5, CSS
-Pasta "HTMLPizzas" contem meus projetos de desenvolvimento web. Com o tempo vou desenvolvendo coisas mais interessantes.
-"HTMLPizzas" is my updated folder of web development. In time, I'll post more relevant code. 
+
+## HTML5 CSS SASS BOOTSTRAP JS
+
+ Aqui estão meus projetos atualizados de front-end, designs responsivos. Destaque para os projetos 'SealWorld' e 'htmlPizzas'.
+ Here are my updated front-end projects folder, with responsible designs. Highlights for 'SealWorld' and 'htmlPizzas' projects.

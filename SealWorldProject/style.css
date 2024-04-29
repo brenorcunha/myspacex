@@ -2,7 +2,7 @@
     box-sizing: border-box;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     margin: 0;
-    padding: 0;
+    padding: 10;
 }
 :root{
     --color-background: #030207;
@@ -79,6 +79,7 @@ a{
     float: left; /* Effect to 'disconnect' images from the box/area. */
     margin-right: 4rem;
     margin-bottom: 2rem;
+    padding-left: 1rem;
     height: 25rem;
     width: 20rem;
 }
@@ -98,7 +99,7 @@ a{
 
 .carousel{
     overflow: hidden;
-    max-width: 800px;
+    max-width: 830px;
     max-height: 533px;
     position: relative;
     text-align: center;
@@ -108,6 +109,7 @@ a{
     width: 100%;
     max-width: 800px;
     max-height: 533px;
+    border-radius: .90rem;
     /* height: auto; */
 }
 .carousel .carousel__item,
@@ -128,15 +130,15 @@ a{
      */
 }
 .carousel .carousel__actions button{
-    border-radius: 15px;
+    border-radius: 50px; /* make button a circle*/
     border: 0;
-    margin-bottom: 35rem;
+    margin-bottom: 60%;
     font-weight: bold;
     cursor: pointer;
     width: 50px;
     height: 50px;
-    color: #fff;
-    background-color: #242424;
+    color: #dddbdb;
+    background-color: rgba(20,116,100,0.6);
 }
 #carousel__button--prev{
     margin-left: 20px;
@@ -144,20 +146,19 @@ a{
 #carousel__button--next{
     margin-right: 20px;
 }
-/* .gallery__img {
+ .gallery__img {
     border-radius: .75rem;
     height: 16rem;
     width: 16rem;
-    object-fit: cover;Best way for adjusting distorced pictures
-    transform: rotate(-2deg); deg = degrees
+    object-fit: cover; /* Best way for adjusting distorced pictures */
+    transform: rotate(-2deg);
 }
-
-The following is a transparent element used just for stylishing an image. 
+/* The following is a transparent element used just for stylishing an image. */
 .gallery__img-wrapper {
     display: inline-block;
     position: relative;
 }
-
+/*
 .gallery__img-wrapper + .gallery__img-wrapper {
     margin-left: 3rem;
     margin-top: 3rem;
