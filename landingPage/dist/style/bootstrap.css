@@ -486,6 +486,7 @@ button,
 [type=reset],
 [type=submit] {
   -webkit-appearance: button;
+  appearance: auto;
 }
 button:not(:disabled),
 [type=button]:not(:disabled),
@@ -543,6 +544,7 @@ legend + * {
 
 [type=search] {
   -webkit-appearance: textfield;
+  appearance: auto;
   outline-offset: -2px;
 }
 
@@ -565,6 +567,7 @@ legend + * {
 ::file-selector-button {
   font: inherit;
   -webkit-appearance: button;
+  appearance: auto;
 }
 
 output {
@@ -2914,6 +2917,7 @@ textarea.form-control-lg {
   text-decoration: none;
   vertical-align: middle;
   cursor: pointer;
+  align-self: center;
   user-select: none;
   border: var(--bs-btn-border-width) solid var(--bs-btn-border-color);
   border-radius: var(--bs-btn-border-radius);
